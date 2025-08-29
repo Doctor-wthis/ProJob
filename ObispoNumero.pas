@@ -8,8 +8,13 @@ type
       value:cardinal;
     public
       constructor Create;
-      procedure setValue(num:byte);
-      function getValue:cardinal;
+
+      procedure SetValue(num:byte);
+
+      function GetValue:cardinal;
+      function Potencia(base,exponente:cardinal):cardinal;
+      function Factorial(num:byte):cardinal;
+      function Absoluto(num:integer):cardinal;
   end;
 
 implementation
@@ -19,14 +24,48 @@ begin
   value:=0;
 end;
 
-procedure Numero.setValue(num:byte);
+procedure Numero.SetValue(num:byte);
 begin
   value:=num;
 end;
 
-function Numero.getValue: Cardinal;
+function Numero.GetValue: Cardinal;
 begin
   getValue:=value;
 end;
+
+// 2^4 --> 16
+function Numero.Potencia(base,exponente:cardinal):cardinal;
+var
+  pot:cardinal;
+  i:byte;
+begin
+  pot:=1;
+  for i := 0 to exponente do
+    pot:=pot*base;
+  Potencia:=pot;
+end;
+
+// 3! --> 6
+function Numero.Factorial(num:byte):cardinal;
+var
+  fact:cardinal;
+  i:byte;
+begin
+  fact:=1;
+  for i := 1 to num do
+    fact:=fact*i;
+  Factorial:=fact;
+end;
+
+// |-9 | --> 9
+function Numero.Absoluto(num:integer):cardinal;
+begin
+  if num<0 then
+    Absoluto:=num*-1
+  else
+    Absoluto:=num;
+end;
+
 
 end.

@@ -1,0 +1,59 @@
+unit ObispoNumero;
+
+interface
+
+type
+  Numero = class
+    private
+      value:cardinal;
+    public
+      constructor Create;
+
+      procedure SetValue(num:byte);
+
+      function Factorial(num:byte):cardinal;
+      function GetValue:cardinal;
+      function Potencia(base,exponente:cardinal):cardinal;
+  end;
+
+implementation
+
+constructor Numero.Create;
+begin
+  value:=0;
+end;
+
+procedure Numero.SetValue(num:byte);
+begin
+  value:=num;
+end;
+
+function Numero.GetValue: Cardinal;
+begin
+  getValue:=value;
+end;
+
+//
+function Numero.Potencia(base,exponente:cardinal):cardinal;
+var
+  pot:cardinal;
+  i:byte;
+begin
+  pot:=1;
+  for i := 0 to exponente do
+    pot:=pot*base;
+  Potencia:=pot;
+end;
+
+function Numero.Factorial(num:byte):cardinal;
+var
+  fact:cardinal;
+  i:byte;
+begin
+  fact:=1;
+  for i := 1 to num do
+    fact:=fact*i;
+  Factorial:=fact;
+end;
+
+end.
