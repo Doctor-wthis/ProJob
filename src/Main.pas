@@ -13,7 +13,8 @@ begin
   Readln(x);
   obj := Numero.Create();
   obj.SetNumero(x);
-  Write();
+
+  Write(obj.NumMayor);
 
   Readln;
 end.

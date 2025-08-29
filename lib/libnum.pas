@@ -19,7 +19,15 @@ type
     procedure EliminarPos(pos:byte);
     procedure EliminarDig(num:byte);
     procedure Insertar(num,pos:byte);
+    procedure Modificar(dig,pos:byte);
+    procedure SeparaPares;
+    procedure Limpiar;
+    procedure OrdenAscend;
 
+    function SumaDigitos:cardinal;
+    function NumMayor:byte;
+    function NumMenor:byte;
+    function Frecuencia(num:byte):cardinal;
     function GetNumero:cardinal;
     function Digito(pos:byte):byte;
     function NumDig:cardinal;
@@ -95,37 +103,83 @@ begin
   value:=((value div Potencia(10,pos-1)*10+num)*Potencia(10,pos-1))+value mod Potencia(10,pos-1);
 end;
 
-// 2^4 --> 16
-function Numero.Potencia(base,exponente:cardinal):cardinal;
-var
-  pot:cardinal;
-  i:byte;
+// dig := 0 ; pos := 3
+// 9746 --> 9046
+procedure Numero.Modificar(dig,pos:byte);
 begin
-  pot:=1;
-  for i:=1 to exponente do
-    pot:=pot*base;
-  Potencia:=pot;
+  value:=((value div Potencia(10,pos))*10+dig)*Potencia(10,pos-1)+value mod Potencia(10,pos-1);
 end;
 
-// 3! --> 6
-function Numero.Factorial(num:byte):cardinal;
+procedure Numero.SeparaPares;
 var
-  fact:cardinal;
   i:byte;
+  d:byte;
 begin
-  fact:=1;
-  for i := 1 to num do
-    fact:=fact*i;
-  Factorial:=fact;
+  for i:=1 to NumDig do
+  begin
+    d=Digito(i);
+    if d mod 2=0 then
+    begin
+      EliminarPos(i);
+      Anadir(d);
+    end;
+  end;
 end;
 
-// |-9 | --> 9
-function Numero.Absoluto(num:integer):cardinal;
+procedure Numero.OrdenAscend;
 begin
-  if num<0 then
-    Absoluto:=num*-1
-  else
-    Absoluto:=num;
+  
+end;
+
+// num := 2
+// 2472102 --> 3
+function Numero.Frecuencia(num:byte):cardinal;
+var
+  i:byte;
+  fre:cardinal;
+begin
+  fre:=0;
+  for i:=1 to NumDig do
+    if Digito(i)=num then
+      fre:=fre+1;
+  Frecuencia:=fre;
+end;
+
+// 9746 --> 9
+function Numero.NumMayor:byte;
+var
+  i:byte;
+  mayor:byte;
+begin
+  mayor:=0;
+  for i:=1 to NumDig do
+    if Digito(i)>mayor then
+      mayor:=Digito(i);
+  NumMayor:=mayor;
+end;
+
+// 9746 --> 4
+function Numero.NumMenor:byte;
+var
+  i:byte;
+  menor:byte;
+begin
+  menor:=9;
+  for i:=1 to NumDig do
+    if Digito(i)<menor then
+      menor:=Digito(i);
+  NumMenor:=menor;
+end;
+
+function SumaDigitos:cardinal;
+var
+  i:byte;
+  suma:cardinal;
+begin
+  suma:=0;
+  for i:=1 to NumDig do
+    suma:=suma+Digito(i);
+  SumaDigitos:=suma;
 end;
 
 end.
