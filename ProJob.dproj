@@ -128,6 +128,7 @@
             <FormType>dfm</FormType>
         </DCCReference>
         <DCCReference Include="ObispoNumero.pas"/>
+        <DCCReference Include="Mate.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>

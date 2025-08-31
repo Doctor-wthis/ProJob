@@ -3,7 +3,8 @@ program ProJob;
 uses
   Vcl.Forms,
   ObispoForm in 'ObispoForm.pas' {Form1},
-  ObispoNumero in 'ObispoNumero.pas';
+  ObispoNumero in 'ObispoNumero.pas',
+  Mate in 'Mate.pas';
 
 {$R *.res}
 

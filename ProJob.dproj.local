@@ -2,10 +2,12 @@
 <BorlandProject>
 	<Transactions>
     <Transaction>2025/08/27 21:44:33.000.847,=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
-    <Transaction>2025/08/27 21:45:15.000.534,C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.dfm=C:\Users\Blanca Hoyos\Documents\ProJob\ObispoForm.dfm</Transaction>
-    <Transaction>2025/08/27 21:45:15.000.534,C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.pas=C:\Users\Blanca Hoyos\Documents\ProJob\ObispoForm.pas</Transaction>
-    <Transaction>2025/08/27 21:45:27.000.471,C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Project1.dproj=C:\Users\Blanca Hoyos\Documents\ProJob\ProJob.dproj</Transaction>
+    <Transaction>2025/08/27 21:45:15.000.534,C:\Users\Blanca Hoyos\Documents\ProJob\ObispoForm.dfm=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/08/27 21:45:15.000.534,C:\Users\Blanca Hoyos\Documents\ProJob\ObispoForm.pas=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/08/27 21:45:27.000.471,C:\Users\Blanca Hoyos\Documents\ProJob\ProJob.dproj=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
     <Transaction>2025/08/27 21:47:24.000.855,=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
-    <Transaction>2025/08/27 21:47:45.000.886,C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas=C:\Users\Blanca Hoyos\Documents\ProJob\ObispoNumero.pas</Transaction>
+    <Transaction>2025/08/27 21:47:45.000.886,C:\Users\Blanca Hoyos\Documents\ProJob\ObispoNumero.pas=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
+    <Transaction>2025/08/30 10:16:18.205,=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
+    <Transaction>2025/08/30 10:16:43.096,C:\Users\Blanca Hoyos\Documents\ProJob\Mate.pas=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
   </Transactions>
 </BorlandProject>
