@@ -14,7 +14,7 @@ begin
   obj := Numero.Create();
   obj.SetNumero(x);
 
-  Write(obj.NumMayor);
+  Write('En construccion...');
 
   Readln;
 end.

@@ -5,7 +5,7 @@ unit libnum;
 interface
 
 uses
-  SysUtils, Math;
+  SysUtils, Math, Mate;
 
 type
   Numero=class
@@ -21,8 +21,6 @@ type
     procedure Insertar(num,pos:byte);
     procedure Modificar(dig,pos:byte);
     procedure SeparaPares;
-    procedure Limpiar;
-    procedure OrdenAscend;
 
     function SumaDigitos:cardinal;
     function NumMayor:byte;
@@ -31,9 +29,7 @@ type
     function GetNumero:cardinal;
     function Digito(pos:byte):byte;
     function NumDig:cardinal;
-    function Potencia(base,exponente:cardinal):cardinal;
-    function Factorial(num:byte):cardinal;
-    function Absoluto(num:integer):cardinal;
+
   end;
 
 implementation
@@ -117,18 +113,13 @@ var
 begin
   for i:=1 to NumDig do
   begin
-    d=Digito(i);
+    d:=Digito(i);
     if d mod 2=0 then
     begin
       EliminarPos(i);
       Anadir(d);
     end;
   end;
-end;
-
-procedure Numero.OrdenAscend;
-begin
-  
 end;
 
 // num := 2
@@ -171,7 +162,7 @@ begin
   NumMenor:=menor;
 end;
 
-function SumaDigitos:cardinal;
+function Numero.SumaDigitos:cardinal;
 var
   i:byte;
   suma:cardinal;

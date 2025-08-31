@@ -3,13 +3,15 @@ unit Mate;
   
 interface
 
+uses
+  SysUtils;
+
 function Potencia(base,exponente:cardinal):cardinal;
 function Factorial(num:byte):cardinal;
 function Absoluto(num:integer):cardinal;
 
-uses
-  SysUtils;
-  
+
+
 implementation
   
 // 2^4 --> 16
