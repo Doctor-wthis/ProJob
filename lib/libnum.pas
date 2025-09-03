@@ -29,6 +29,8 @@ type
     function GetNumero:cardinal;
     function Digito(pos:byte):byte;
     function NumDig:cardinal;
+    function Conversor(base:byte):String;
+    function Romano:String;
 
   end;
 
@@ -106,6 +108,7 @@ begin
   value:=((value div Potencia(10,pos))*10+dig)*Potencia(10,pos-1)+value mod Potencia(10,pos-1);
 end;
 
+// 9476 --> 9746
 procedure Numero.SeparaPares;
 var
   i:byte;
@@ -171,6 +174,30 @@ begin
   for i:=1 to NumDig do
     suma:=suma+Digito(i);
   SumaDigitos:=suma;
+end;
+
+// 9746 --> 10011000010010
+function Numero.Conversor(base:byte):string;
+var
+  Dic,NewNum:String;
+  n:cardinal;
+  d:byte;
+begin
+  Dic:='0123456789ABCDEF';
+  n:=value;
+  while n>0 do
+  begin
+    d:=n mod base;
+    NewNum:=Dic[d+1]+NewNum;
+    n:=n div base;
+  end;
+  Conversor:=NewNum;
+end;
+
+function Numero.Romano:string;
+begin
+  Dic:='IVXLCDM';
+  
 end;
 
 end.

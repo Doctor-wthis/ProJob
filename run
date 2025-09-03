@@ -1,0 +1,26 @@
+
+#!/bin/bash
+
+dir_src="src"
+dir_build="build"
+dir_lib="lib"
+TARGET="Main"
+
+if [ ! -d "$dir_build" ]; then
+    mkdir "$dir_build"
+fi
+
+echo Compilando...
+fpc -Fu"$dir_lib" -FE"$dir_build" "$dir_src/Main.pas"
+
+if [ $? -ne 0 ]; then
+  echo
+  echo "Error de compilacion."
+  exit 1
+fi
+
+echo
+echo "Ejecutando $TARGET...."
+"$dir_build/$TARGET"
+
+read -p "Pressione Enter para continuar..."
