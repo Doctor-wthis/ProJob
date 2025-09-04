@@ -8,8 +8,11 @@ uses
 type
   Numero = class
     private
+
       value:cardinal;
+
     public
+
       constructor Create;
 
       procedure SetValue(num:cardinal);
@@ -59,7 +62,8 @@ end;
 // 97546 --> 9746
 procedure Numero.EliminarPos(pos:byte);
 begin
-  value:=((value div Potencia(10,pos))*Potencia(10,pos-1))+value mod Potencia(10,pos-1);
+  // value:=((value div Potencia(10,pos))*Potencia(10,pos-1))+value mod Potencia(10,pos-1);
+  // value:=(value div Potencia(10,pos))*Potencia(10,pos-1)+value mod Potencia(10,pos-1);
 end;
 
 // num := 3

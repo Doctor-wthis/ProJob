@@ -16,7 +16,7 @@ var
   i:byte;
 begin
   pot:=1;
-  for i := 1 to exponente do
+  for i := 0 to exponente do
     pot:=pot*base;
   Potencia:=pot;
 end;
