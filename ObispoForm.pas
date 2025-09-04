@@ -8,6 +8,7 @@ uses
 
 type
   TForm1 = class(TForm)
+
     MainMenu1: TMainMenu;
     Numero1: TMenuItem;
     Numero2: TMenuItem;
@@ -24,6 +25,19 @@ type
     EliminarDigitos1: TMenuItem;
     Insertar1: TMenuItem;
     Insertar2: TMenuItem;
+    SepararPares1: TMenuItem;
+    SepararPares2: TMenuItem;
+    Ordenar1: TMenuItem;
+    OrdenDescendente1: TMenuItem;
+    Funciones1: TMenuItem;
+    Funciones2: TMenuItem;
+    NumeroMayor1: TMenuItem;
+    NumeroMayor2: TMenuItem;
+    Frecuencia1: TMenuItem;
+    Frecuencia2: TMenuItem;
+    NumerodeDigitos1: TMenuItem;
+    NumerodeDigitos2: TMenuItem;
+
     procedure FormCreate(Sender: TObject);
     procedure Numero2Click(Sender: TObject);
     procedure SetValue1Click(Sender: TObject);
@@ -32,6 +46,17 @@ type
     procedure EliminarDigitos1Click(Sender: TObject);
     procedure Insertar1Click(Sender: TObject);
     procedure Insertar2Click(Sender: TObject);
+    procedure SepararPares1Click(Sender: TObject);
+    procedure Ordenar1Click(Sender: TObject);
+    procedure OrdenDescendente1Click(Sender: TObject);
+    procedure Funciones2Click(Sender: TObject);
+    procedure NumeroMayor1Click(Sender: TObject);
+    procedure NumeroMayor2Click(Sender: TObject);
+    procedure Frecuencia1Click(Sender: TObject);
+    procedure Frecuencia2Click(Sender: TObject);
+    procedure NumerodeDigitos1Click(Sender: TObject);
+    procedure NumerodeDigitos2Click(Sender: TObject);
+
   private
     obj:Numero;
   public
@@ -40,9 +65,7 @@ type
 
 var
   Form1: TForm1;
-
 implementation
-
 {$R *.dfm}
 
 procedure TForm1.Anadir1Click(Sender: TObject);
@@ -60,9 +83,25 @@ begin
   obj.EliminarDig(StrToInt(Edit3.Text));
 end;
 
+// Constructor del Formulario
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   obj:=Numero.Create;
+end;
+
+procedure TForm1.Frecuencia1Click(Sender: TObject);
+begin
+  Label1.Caption:=IntToStr(obj.Frecuencia(StrToInt(Edit3.Text)));
+end;
+
+procedure TForm1.Frecuencia2Click(Sender: TObject);
+begin
+  Label1.Caption:=IntToStr(obj.Digito(StrToInt(Edit2.Text)));
+end;
+
+procedure TForm1.Funciones2Click(Sender: TObject);
+begin
+  Label1.Caption:=IntToStr(obj.SumaDigitos);
 end;
 
 procedure TForm1.Insertar1Click(Sender: TObject);
@@ -78,6 +117,41 @@ end;
 procedure TForm1.Numero2Click(Sender: TObject);
 begin
   Label1.Caption:=IntToStr(obj.GetValue);
+end;
+
+procedure TForm1.NumerodeDigitos1Click(Sender: TObject);
+begin
+  Label1.Caption:=IntToStr(obj.NumDig);
+end;
+
+procedure TForm1.NumerodeDigitos2Click(Sender: TObject);
+begin
+  Label1.Caption:=obj.Conversor(StrToInt(Edit3.Text));
+end;
+
+procedure TForm1.NumeroMayor1Click(Sender: TObject);
+begin
+  Label1.Caption:=IntToStr(obj.NumMayor);
+end;
+
+procedure TForm1.NumeroMayor2Click(Sender: TObject);
+begin
+  Label1.Caption:=IntToStr(obj.NumMenor);
+end;
+
+procedure TForm1.Ordenar1Click(Sender: TObject);
+begin
+  obj.OrdenAscendente;
+end;
+
+procedure TForm1.OrdenDescendente1Click(Sender: TObject);
+begin
+  obj.OrdenDescendente;
+end;
+
+procedure TForm1.SepararPares1Click(Sender: TObject);
+begin
+  obj.SeparaPares;
 end;
 
 procedure TForm1.SetValue1Click(Sender: TObject);

@@ -14,31 +14,31 @@ object Form1: TForm1
   OnCreate = FormCreate
   TextHeight = 15
   object Label1: TLabel
-    Left = 184
+    Left = 216
     Top = 128
-    Width = 121
-    Height = 25
+    Width = 52
+    Height = 15
     Caption = 'Resultado'
   end
   object Label2: TLabel
     Left = 128
     Top = 61
     Width = 51
-    Height = 23
+    Height = 15
     Caption = 'Posicion: '
   end
   object Label3: TLabel
     Left = 128
     Top = 90
-    Width = 50
-    Height = 23
+    Width = 38
+    Height = 15
     Caption = 'Digito: '
   end
   object Label4: TLabel
     Left = 128
     Top = 32
     Width = 50
-    Height = 23
+    Height = 15
     Caption = 'Numero: '
   end
   object Edit1: TEdit
@@ -94,6 +94,52 @@ object Form1: TForm1
       object Insertar2: TMenuItem
         Caption = 'Modificar'
         OnClick = Insertar2Click
+      end
+      object SepararPares1: TMenuItem
+        Caption = 'Separar Pares'
+        OnClick = SepararPares1Click
+      end
+      object SepararPares2: TMenuItem
+        Caption = 'Separar Pares'
+      end
+      object Ordenar1: TMenuItem
+        Caption = 'Orden Ascendente'
+        OnClick = Ordenar1Click
+      end
+      object OrdenDescendente1: TMenuItem
+        Caption = 'Orden Descendente'
+        OnClick = OrdenDescendente1Click
+      end
+    end
+    object Funciones1: TMenuItem
+      Caption = 'Funciones'
+      object Funciones2: TMenuItem
+        Caption = 'Sumar Digitos'
+        OnClick = Funciones2Click
+      end
+      object NumeroMayor1: TMenuItem
+        Caption = 'Numero Mayor'
+        OnClick = NumeroMayor1Click
+      end
+      object NumeroMayor2: TMenuItem
+        Caption = 'Numero Menor'
+        OnClick = NumeroMayor2Click
+      end
+      object Frecuencia1: TMenuItem
+        Caption = 'Frecuencia'
+        OnClick = Frecuencia1Click
+      end
+      object Frecuencia2: TMenuItem
+        Caption = 'Digito'
+        OnClick = Frecuencia2Click
+      end
+      object NumerodeDigitos1: TMenuItem
+        Caption = 'Numero de Digitos'
+        OnClick = NumerodeDigitos1Click
+      end
+      object NumerodeDigitos2: TMenuItem
+        Caption = 'Convertir'
+        OnClick = NumerodeDigitos2Click
       end
     end
   end

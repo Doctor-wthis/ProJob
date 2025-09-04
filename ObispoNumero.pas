@@ -8,8 +8,11 @@ uses
 type
   Numero = class
     private
+
       value:cardinal;
+
     public
+
       constructor Create;
 
       procedure SetValue(num:cardinal);
@@ -19,8 +22,8 @@ type
       procedure Insertar(num,pos:byte);
       procedure Modificar(dig,pos:byte);
       procedure SeparaPares;
-      procedure Limpiar;
-      procedure OrdenAscend;
+      procedure OrdenAscendente;
+      procedure OrdenDescendente;
 
       function SumaDigitos:cardinal;
       function NumMayor:byte;
@@ -29,6 +32,7 @@ type
       function GetValue:cardinal;
       function Digito(pos:byte):byte;
       function NumDig:cardinal;
+      function Conversor(base:byte):string;
   end;
 
 implementation
@@ -107,14 +111,38 @@ begin
   end;
 end;
 
-procedure Numero.OrdenAscend;
+// 9746 --> 4679
+procedure Numero.OrdenAscendente;
+var
+  i:byte;
+  dig:byte;
+  j:byte;
 begin
-
+  for j:=1 to NumDig-1 do
+  for i:=1 to NumDig-1 do
+    if Digito(i)<Digito(i+1) then
+    begin
+      dig:=Digito(i+1);
+      EliminarPos(i+1);
+      Anadir(dig);
+    end;
 end;
 
-procedure Numero.Limpiar;
+// 9746 --> 9764
+procedure Numero.OrdenDescendente;
+var
+  i:byte;
+  dig:byte;
+  j:byte;
 begin
-
+  for j:=1 to NumDig-1 do
+  for i:=1 to NumDig-1 do
+    if Digito(i)>Digito(i+1) then
+    begin
+      dig:=Digito(i+1);
+      EliminarPos(i+1);
+      Anadir(dig);
+    end;
 end;
 
 
@@ -189,6 +217,23 @@ begin
   for i:=1 to NumDig do
     suma:=suma+Digito(i);
   SumaDigitos:=suma;
+end;
+
+function Numero.Conversor(base:byte):string;
+var
+  n:cardinal;
+  d:byte;
+  NewNum:string;
+const dic:string='0123456789ABCDEF';
+begin
+  n:=value;
+  while n>0 do
+  begin
+    d:=n mod base;
+    NewNum:=dic[d+1]+NewNum;
+    n:=n div base;
+  end;
+  Conversor:=NewNum;
 end;
 
 end.
