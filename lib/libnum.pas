@@ -30,7 +30,6 @@ type
     function Digito(pos:byte):byte;
     function NumDig:cardinal;
     function Conversor(base:byte):String;
-    function Romano:String;
 
   end;
 
@@ -192,12 +191,6 @@ begin
     n:=n div base;
   end;
   Conversor:=NewNum;
-end;
-
-function Numero.Romano:string;
-begin
-  Dic:='IVXLCDM';
-  
 end;
 
 end.
