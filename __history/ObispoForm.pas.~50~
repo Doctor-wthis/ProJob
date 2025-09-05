@@ -8,6 +8,7 @@ uses
 
 type
   TForm1 = class(TForm)
+
     MainMenu1: TMainMenu;
     Numero1: TMenuItem;
     Numero2: TMenuItem;
@@ -36,6 +37,7 @@ type
     Frecuencia2: TMenuItem;
     NumerodeDigitos1: TMenuItem;
     NumerodeDigitos2: TMenuItem;
+
     procedure FormCreate(Sender: TObject);
     procedure Numero2Click(Sender: TObject);
     procedure SetValue1Click(Sender: TObject);
@@ -54,6 +56,7 @@ type
     procedure Frecuencia2Click(Sender: TObject);
     procedure NumerodeDigitos1Click(Sender: TObject);
     procedure NumerodeDigitos2Click(Sender: TObject);
+
   private
     obj:Numero;
   public
@@ -62,9 +65,7 @@ type
 
 var
   Form1: TForm1;
-
 implementation
-
 {$R *.dfm}
 
 procedure TForm1.Anadir1Click(Sender: TObject);
@@ -82,6 +83,7 @@ begin
   obj.EliminarDig(StrToInt(Edit3.Text));
 end;
 
+// Constructor del Formulario
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   obj:=Numero.Create;
@@ -124,7 +126,7 @@ end;
 
 procedure TForm1.NumerodeDigitos2Click(Sender: TObject);
 begin
-  Label1.Caption:=obj.Conversor(Edit3.Text);
+  Label1.Caption:=obj.Conversor(StrToInt(Edit3.Text));
 end;
 
 procedure TForm1.NumeroMayor1Click(Sender: TObject);

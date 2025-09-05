@@ -37,6 +37,7 @@ type
     Frecuencia2: TMenuItem;
     NumerodeDigitos1: TMenuItem;
     NumerodeDigitos2: TMenuItem;
+    Romano1: TMenuItem;
 
     procedure FormCreate(Sender: TObject);
     procedure Numero2Click(Sender: TObject);
@@ -56,6 +57,7 @@ type
     procedure Frecuencia2Click(Sender: TObject);
     procedure NumerodeDigitos1Click(Sender: TObject);
     procedure NumerodeDigitos2Click(Sender: TObject);
+    procedure Romano1Click(Sender: TObject);
 
   private
     obj:Numero;
@@ -147,6 +149,11 @@ end;
 procedure TForm1.OrdenDescendente1Click(Sender: TObject);
 begin
   obj.OrdenDescendente;
+end;
+
+procedure TForm1.Romano1Click(Sender: TObject);
+begin
+  Label1.Caption:=obj.Romano;
 end;
 
 procedure TForm1.SepararPares1Click(Sender: TObject);

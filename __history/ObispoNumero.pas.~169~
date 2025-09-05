@@ -33,6 +33,8 @@ type
       function Digito(pos:byte):byte;
       function NumDig:cardinal;
       function Conversor(base:byte):string;
+      function Romano:string;
+      function Literal:string;
   end;
 
 implementation
@@ -62,8 +64,7 @@ end;
 // 97546 --> 9746
 procedure Numero.EliminarPos(pos:byte);
 begin
-  // value:=((value div Potencia(10,pos))*Potencia(10,pos-1))+value mod Potencia(10,pos-1);
-  value:=(value div Potencia(10,pos))
+  value:=((value div Potencia(10,pos))*Potencia(10,pos-1))+value mod Potencia(10,pos-1);
 end;
 
 // num := 3
@@ -235,6 +236,52 @@ begin
     n:=n div base;
   end;
   Conversor:=NewNum;
+end;
+
+function Numero.Romano:string;
+const
+  Dic : Array[1..4,1..9] of String=
+  (('I','II','III','IV','V','VI','VII','VIII','IX'),
+  ('X','XX','XXX','XL','L','LX','LXX','LXXX','CX'),
+  ('C','CC','CCC','CD','D','DC','DCC','DCCC','CM'),
+  ('M','MM','MMM','Mv','v','vM','vMM','vMMM','vv'));
+var
+  n:cardinal;
+  i,dig:byte;
+  roman:string;
+begin
+  roman:='';
+  n:=value;
+  i:=1;
+  while n>0 do
+  begin
+    dig:=n mod 10;
+    if dig>0 then
+      roman:=Dic[i,dig]+roman;
+    n:=n div 10;
+    i:=i+1;
+  end;
+  Romano:=roman;
+end;
+
+function Numero.Literal:string;
+const
+  Dic : Array[1..3,1..9] of String=
+  (('uno','dos','tres','cuatro','cinco','seis','siete','ocho','nueve'),
+  ('diez','veinte','treinta','cuarenta','cincuenta','sesenta','setenta','ochenta','noventa'),
+  ('cien','doscientos','trescientos','cuatrocientos','quinientos','seiscientos','setecientos','ochocientos','novecientos'));
+var
+  lit:string;
+  n:cardinal;
+  i,dig:byte;
+begin
+  lit:='';
+  n:=value;
+  i:=3;
+  dig:=n mod Potencia(10,i);
+  lit:=Dic[i,dig]+lit;
+  n:=n div 10;
+  i:=i-1;
 end;
 
 end.

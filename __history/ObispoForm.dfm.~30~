@@ -104,36 +104,42 @@ object Form1: TForm1
       end
       object Ordenar1: TMenuItem
         Caption = 'Orden Ascendente'
+        OnClick = Ordenar1Click
       end
       object OrdenDescendente1: TMenuItem
         Caption = 'Orden Descendente'
-      end
-      object OrdenDescendente2: TMenuItem
-        Caption = 'Orden Descendente'
+        OnClick = OrdenDescendente1Click
       end
     end
     object Funciones1: TMenuItem
       Caption = 'Funciones'
       object Funciones2: TMenuItem
         Caption = 'Sumar Digitos'
+        OnClick = Funciones2Click
       end
       object NumeroMayor1: TMenuItem
         Caption = 'Numero Mayor'
+        OnClick = NumeroMayor1Click
       end
       object NumeroMayor2: TMenuItem
         Caption = 'Numero Menor'
+        OnClick = NumeroMayor2Click
       end
       object Frecuencia1: TMenuItem
         Caption = 'Frecuencia'
+        OnClick = Frecuencia1Click
       end
       object Frecuencia2: TMenuItem
         Caption = 'Digito'
+        OnClick = Frecuencia2Click
       end
       object NumerodeDigitos1: TMenuItem
         Caption = 'Numero de Digitos'
+        OnClick = NumerodeDigitos1Click
       end
       object NumerodeDigitos2: TMenuItem
         Caption = 'Convertir'
+        OnClick = NumerodeDigitos2Click
       end
     end
   end

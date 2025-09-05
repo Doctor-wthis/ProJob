@@ -5,6 +5,7 @@ object Form1: TForm1
   ClientHeight = 441
   ClientWidth = 624
   Color = clBtnFace
+  CustomTitleBar.CaptionAlignment = taCenter
   Font.Charset = DEFAULT_CHARSET
   Font.Color = clWindowText
   Font.Height = -12
@@ -12,6 +13,7 @@ object Form1: TForm1
   Font.Style = []
   Menu = MainMenu1
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
     Left = 216
@@ -140,6 +142,10 @@ object Form1: TForm1
       object NumerodeDigitos2: TMenuItem
         Caption = 'Convertir'
         OnClick = NumerodeDigitos2Click
+      end
+      object Romano1: TMenuItem
+        Caption = 'Romano'
+        OnClick = Romano1Click
       end
     end
   end
