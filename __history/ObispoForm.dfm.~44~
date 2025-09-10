@@ -70,36 +70,46 @@ object Form1: TForm1
       Caption = 'Procedimientos'
       object SetValue1: TMenuItem
         Caption = 'Set Value'
+        OnClick = SetValue1Click
       end
       object Anadir1: TMenuItem
         Caption = 'Anadir'
+        OnClick = Anadir1Click
       end
       object Anadir2: TMenuItem
         Caption = 'Eliminar Posicion'
+        OnClick = Anadir2Click
       end
       object EliminarDigito1: TMenuItem
         Caption = 'Eliminar Digito'
+        OnClick = EliminarDigito1Click
       end
       object EliminarDigito2: TMenuItem
         Caption = 'Insertar'
+        OnClick = EliminarDigito2Click
       end
       object Modificar1: TMenuItem
         Caption = 'Modificar'
+        OnClick = Modificar1Click
       end
       object Modificar2: TMenuItem
         Caption = 'Separa Pares Impares'
+        OnClick = Modificar2Click
       end
       object OrdenarAscendente1: TMenuItem
         Caption = 'Ordenar Ascendente'
+        OnClick = OrdenarAscendente1Click
       end
       object OrdenarAscendente2: TMenuItem
         Caption = 'Ordenar Descendente'
+        OnClick = OrdenarAscendente2Click
       end
     end
     object Funciones1: TMenuItem
       Caption = 'Funciones'
       object GetValue1: TMenuItem
         Caption = 'Get Value'
+        OnClick = GetValue1Click
       end
       object Funciones2: TMenuItem
         Caption = 'Sumar Digitos'

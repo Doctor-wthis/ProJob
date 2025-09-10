@@ -114,7 +114,8 @@ var
 begin
   for i := 1 to longitud do
     if FrecuenciaChar(caracteres[i])>1 then
-      Eliminar(i);
+    
 end;
+
 
 end.

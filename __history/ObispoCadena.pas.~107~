@@ -1,3 +1,4 @@
+
 unit ObispoCadena;
 
 interface
@@ -13,6 +14,11 @@ type
       procedure Modificar(pos:integer;c:char);
       procedure Insertar(pos:integer;c:char);
       procedure Eliminar(pos:integer);
+
+      function BuscarChar(c:char):integer;
+      function FrecuenciaChar(c:char):integer;
+      function MayorFrec:char;
+      function EliminarRepetidos:
   end;
 
 implementation
@@ -55,5 +61,54 @@ begin
     caracteres[i]:=caracteres[i+1];
   longitud:=longitud-1;
 end;
+
+// ---------- Funciones ----------
+
+function Cadena.BuscarChar(c:char):integer;
+var
+  i,pos: Integer;
+begin
+  i:=1;
+  pos:=0;
+  while (i<=longitud) and (pos=0) do
+  begin
+    if caracteres[i]=c then
+      pos:=i;
+    i:=i+1;
+  end;
+  BuscarChar:=pos;
+end;
+
+function Cadena.FrecuenciaChar(c:Char):integer;
+var
+  i,frec:integer;
+begin
+  i:=1;
+  frec:=0;
+  while i<=longitud do
+  begin
+    if caracteres[i]=c then
+      frec:=frec+1;
+  end;
+  FrecuenciaChar:=frec;
+end;
+
+function Cadena.MayorFrec:Char;
+var
+  i,Mayor: Integer;
+  buscado:char;
+begin
+  Mayor:=0;
+  for i := 1 to longitud do
+    if FrecuenciaChar(caracteres[i])>Mayor then
+    begin
+      Mayor:=FrecuenciaChar(caracteres[i]);
+      buscado:=caracteres[i];
+    end;
+  MayorFrec:=buscado;
+end;
+
+function
+
 
 end.

@@ -13,6 +13,7 @@ object Form1: TForm1
   Font.Style = []
   Menu = MainMenu1
   OnCreate = FormCreate
+  PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
     Left = 216
@@ -82,27 +83,34 @@ object Form1: TForm1
       end
       object EliminarDigito1: TMenuItem
         Caption = 'Eliminar Digito'
+        OnClick = EliminarDigito1Click
       end
       object EliminarDigito2: TMenuItem
         Caption = 'Insertar'
+        OnClick = EliminarDigito2Click
       end
       object Modificar1: TMenuItem
         Caption = 'Modificar'
+        OnClick = Modificar1Click
       end
       object Modificar2: TMenuItem
         Caption = 'Separa Pares Impares'
+        OnClick = Modificar2Click
       end
       object OrdenarAscendente1: TMenuItem
         Caption = 'Ordenar Ascendente'
+        OnClick = OrdenarAscendente1Click
       end
       object OrdenarAscendente2: TMenuItem
         Caption = 'Ordenar Descendente'
+        OnClick = OrdenarAscendente2Click
       end
     end
     object Funciones1: TMenuItem
       Caption = 'Funciones'
       object GetValue1: TMenuItem
         Caption = 'Get Value'
+        OnClick = GetValue1Click
       end
       object Funciones2: TMenuItem
         Caption = 'Sumar Digitos'
@@ -136,6 +144,12 @@ object Form1: TForm1
         Caption = 'Romano'
         OnClick = Romano1Click
       end
+    end
+    object ProcedimientosCadena1: TMenuItem
+      Caption = 'Procedimientos (Cadena)'
+    end
+    object ProcedimientosCadena2: TMenuItem
+      Caption = 'Funciones (Cadena)'
     end
   end
 end

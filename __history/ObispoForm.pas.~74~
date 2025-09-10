@@ -36,6 +36,10 @@ type
     Modificar2: TMenuItem;
     OrdenarAscendente1: TMenuItem;
     OrdenarAscendente2: TMenuItem;
+    EliminarDigito1: TMenuItem;
+    EliminarDigito2: TMenuItem;
+    ProcedimientosCadena1: TMenuItem;
+    ProcedimientosCadena2: TMenuItem;
 
     procedure FormCreate(Sender: TObject);
     procedure Numero2Click(Sender: TObject);
@@ -43,8 +47,7 @@ type
     procedure Anadir1Click(Sender: TObject);
     procedure Anadir2Click(Sender: TObject);
     procedure EliminarDigitos1Click(Sender: TObject);
-    procedure Insertar1Click(Sender: TObject);
-    procedure Insertar2Click(Sender: TObject);
+
     procedure SepararPares1Click(Sender: TObject);
     procedure Ordenar1Click(Sender: TObject);
     procedure OrdenDescendente1Click(Sender: TObject);
@@ -61,6 +64,8 @@ type
     procedure OrdenarAscendente1Click(Sender: TObject);
     procedure OrdenarAscendente2Click(Sender: TObject);
     procedure GetValue1Click(Sender: TObject);
+    procedure EliminarDigito2Click(Sender: TObject);
+    procedure EliminarDigito1Click(Sender: TObject);
 
   private
     obj:Numero;
@@ -83,9 +88,15 @@ begin
   obj.EliminarPos(StrToInt(Edit2.Text));
 end;
 
+procedure TForm1.EliminarDigito1Click(Sender: TObject);
+begin
+  obj.EliminarDig(StrToInt(Edit3.Text));
+end;
 
-
-
+procedure TForm1.EliminarDigito2Click(Sender: TObject);
+begin
+  obj.Insertar(StrToInt(Edit3.Text),StrToInt(Edit2.Text));
+end;
 
 procedure TForm1.EliminarDigitos1Click(Sender: TObject);
 begin
@@ -116,16 +127,6 @@ end;
 procedure TForm1.GetValue1Click(Sender: TObject);
 begin
   Label1.Caption:=IntToStr(obj.GetValue);
-end;
-
-procedure TForm1.Insertar1Click(Sender: TObject);
-begin
-  obj.Insertar(StrToInt(Edit3.Text),StrToInt(Edit2.Text));
-end;
-
-procedure TForm1.Insertar2Click(Sender: TObject);
-begin
-  obj.Modificar(StrToInt(Edit3.Text),StrToInt(Edit2.Text));
 end;
 
 procedure TForm1.Modificar1Click(Sender: TObject);

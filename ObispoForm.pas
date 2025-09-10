@@ -38,6 +38,15 @@ type
     OrdenarAscendente2: TMenuItem;
     EliminarDigito1: TMenuItem;
     EliminarDigito2: TMenuItem;
+    ProcedimientosCadena1: TMenuItem;
+    ProcedimientosCadena2: TMenuItem;
+    Label5: TLabel;
+    Edit4: TEdit;
+    Label6: TLabel;
+    Edit5: TEdit;
+    Label7: TLabel;
+    Edit6: TEdit;
+    Label8: TLabel;
 
     procedure FormCreate(Sender: TObject);
     procedure Numero2Click(Sender: TObject);
