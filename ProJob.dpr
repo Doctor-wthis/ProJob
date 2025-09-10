@@ -4,7 +4,8 @@ uses
   Vcl.Forms,
   ObispoForm in 'ObispoForm.pas' {Form1},
   ObispoNumero in 'ObispoNumero.pas',
-  Mate in 'Mate.pas';
+  Mate in 'Mate.pas',
+  ObispoCadena in 'ObispoCadena.pas';
 
 {$R *.res}
 

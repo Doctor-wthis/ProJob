@@ -13,7 +13,6 @@ object Form1: TForm1
   Font.Style = []
   Menu = MainMenu1
   OnCreate = FormCreate
-  PixelsPerInch = 96
   TextHeight = 15
   object Label1: TLabel
     Left = 216
@@ -67,12 +66,8 @@ object Form1: TForm1
   object MainMenu1: TMainMenu
     Left = 544
     Top = 16
-    object Numero1: TMenuItem
-      Caption = 'Numero'
-      object Numero2: TMenuItem
-        Caption = 'Get Value'
-        OnClick = Numero2Click
-      end
+    object Procedimientos1: TMenuItem
+      Caption = 'Procedimientos'
       object SetValue1: TMenuItem
         Caption = 'Set Value'
         OnClick = SetValue1Click
@@ -85,36 +80,37 @@ object Form1: TForm1
         Caption = 'Eliminar Posicion'
         OnClick = Anadir2Click
       end
-      object EliminarDigitos1: TMenuItem
-        Caption = 'Eliminar Digitos'
-        OnClick = EliminarDigitos1Click
+      object EliminarDigito1: TMenuItem
+        Caption = 'Eliminar Digito'
+        OnClick = EliminarDigito1Click
       end
-      object Insertar1: TMenuItem
+      object EliminarDigito2: TMenuItem
         Caption = 'Insertar'
-        OnClick = Insertar1Click
+        OnClick = EliminarDigito2Click
       end
-      object Insertar2: TMenuItem
+      object Modificar1: TMenuItem
         Caption = 'Modificar'
-        OnClick = Insertar2Click
+        OnClick = Modificar1Click
       end
-      object SepararPares1: TMenuItem
-        Caption = 'Separar Pares'
-        OnClick = SepararPares1Click
+      object Modificar2: TMenuItem
+        Caption = 'Separa Pares Impares'
+        OnClick = Modificar2Click
       end
-      object SepararPares2: TMenuItem
-        Caption = 'Separar Pares'
+      object OrdenarAscendente1: TMenuItem
+        Caption = 'Ordenar Ascendente'
+        OnClick = OrdenarAscendente1Click
       end
-      object Ordenar1: TMenuItem
-        Caption = 'Orden Ascendente'
-        OnClick = Ordenar1Click
-      end
-      object OrdenDescendente1: TMenuItem
-        Caption = 'Orden Descendente'
-        OnClick = OrdenDescendente1Click
+      object OrdenarAscendente2: TMenuItem
+        Caption = 'Ordenar Descendente'
+        OnClick = OrdenarAscendente2Click
       end
     end
     object Funciones1: TMenuItem
       Caption = 'Funciones'
+      object GetValue1: TMenuItem
+        Caption = 'Get Value'
+        OnClick = GetValue1Click
+      end
       object Funciones2: TMenuItem
         Caption = 'Sumar Digitos'
         OnClick = Funciones2Click

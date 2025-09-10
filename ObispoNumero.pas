@@ -1,3 +1,4 @@
+
 unit ObispoNumero;
 
 interface
@@ -282,6 +283,8 @@ begin
   lit:=Dic[i,dig]+lit;
   n:=n div Potencia(10, i);
   i:=i-1;
+  Literal:=lit;
 end;
+
 
 end.
