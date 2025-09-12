@@ -2,19 +2,27 @@
 unit ObispoCadena;
 
 interface
-
+uses
+  System.Classes, Mate;
 type
+
   Cadena=class
     private
-      longitud:integer;
-      caracteres:array[1..100] of char;
+      longitud:word;
+      caracteres:array[1..2048] of char;
     public
-      constructor Create;
-      procedure Anadir(c:char);
-      procedure Modificar(pos:integer;c:char);
-      procedure Insertar(pos:integer;c:char);
-      procedure Eliminar(pos:integer);
 
+      constructor Create;
+      procedure setStr(s:string);
+      procedure Anadir(c:char);
+      procedure Modificar(pos:word;c:char);
+      procedure Insertar(pos:word;c:char);
+      procedure Eliminar(pos:integer);
+      procedure EliminarRepetidos;
+
+      function getLong:word;
+      function getChar(pos:word):char;
+      function getStr:string;
       function BuscarChar(c:char):integer;
       function FrecuenciaChar(c:char):integer;
       function MayorFrec:char;
@@ -27,18 +35,27 @@ begin
   longitud:=0;
 end;
 
+procedure Cadena.setStr(s: string);
+var
+  i:word;
+begin
+  longitud:=Length(s);
+  for i := 1 to longitud do
+    caracteres[i]:=s[i];
+end;
+
 procedure Cadena.Anadir(c: char);
 begin
   longitud:=longitud+1;
   caracteres[longitud]:=c;
 end;
 
-procedure Cadena.Modificar(pos: integer;c: char);
+procedure Cadena.Modificar(pos: word;c: char);
 begin
   caracteres[pos]:=c;
 end;
 
-procedure Cadena.Insertar(pos: Integer; c: Char);
+procedure Cadena.Insertar(pos: word; c: Char);
 var
   i:integer;
 begin
@@ -52,16 +69,43 @@ begin
   caracteres[pos]:=c;
 end;
 
+// No sabes Programar
 procedure Cadena.Eliminar(pos: Integer);
 var
   i: Integer;
 begin
+  if (pos>0) and (pos>=longitud) then
+  begin
   for i := pos to longitud-1 do
     caracteres[i]:=caracteres[i+1];
   longitud:=longitud-1;
+  end
+  // else raise Exception.Create('Posicion invalida');
+
 end;
 
 // ---------- Funciones ----------
+
+function Cadena.getLong: Word;
+begin
+  getLong:=longitud;
+end;
+
+function Cadena.getChar(pos: Word): Char;
+begin
+  getChar:=caracteres[pos];
+end;
+
+function Cadena.getStr: string;
+var
+  s:string;
+  i: Integer;
+begin
+  s:='';
+  for i := 1 to longitud do
+    s:=s+caracteres[i];
+  getStr:=s;
+end;
 
 function Cadena.BuscarChar(c:char):integer;
 var
@@ -107,7 +151,13 @@ begin
   MayorFrec:=buscado;
 end;
 
-function
-
+procedure Cadena.EliminarRepetidos;
+var
+  i: Integer;
+begin
+  for i := 1 to longitud do
+    if FrecuenciaChar(caracteres[i])>1 then
+      Eliminar(i);
+end;
 
 end.

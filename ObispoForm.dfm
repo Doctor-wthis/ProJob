@@ -18,7 +18,7 @@ object Form1: TForm1
   object Label1: TLabel
     Left = 216
     Top = 128
-    Width = 121
+    Width = 52
     Height = 15
     Caption = 'Resultado'
   end
@@ -67,8 +67,8 @@ object Form1: TForm1
   object Label8: TLabel
     Left = 216
     Top = 328
-    Width = 121
-    Height = 17
+    Width = 92
+    Height = 15
     Caption = 'ResultadoCadena'
   end
   object Edit1: TEdit
@@ -196,9 +196,57 @@ object Form1: TForm1
     end
     object ProcedimientosCadena1: TMenuItem
       Caption = 'Procedimientos (Cadena)'
+      object SetCadena1: TMenuItem
+        Caption = 'Set Cadena'
+        OnClick = SetCadena1Click
+      end
+      object SetCadena2: TMenuItem
+        Caption = 'Anadir'
+        OnClick = SetCadena2Click
+      end
+      object Modificar3: TMenuItem
+        Caption = 'Modificar'
+        OnClick = Modificar3Click
+      end
+      object Modificar4: TMenuItem
+        Caption = 'Insertar'
+        OnClick = Modificar4Click
+      end
+      object Eliminar1: TMenuItem
+        Caption = 'Eliminar'
+        OnClick = Eliminar1Click
+      end
+      object Eliminar2: TMenuItem
+        Caption = 'Eliminar Repetidos'
+        OnClick = Eliminar2Click
+      end
     end
     object ProcedimientosCadena2: TMenuItem
       Caption = 'Funciones (Cadena)'
+      object GetCadena1: TMenuItem
+        Caption = 'Get Cadena'
+        OnClick = GetCadena1Click
+      end
+      object GetCadena2: TMenuItem
+        Caption = 'Get Longitud'
+        OnClick = GetCadena2Click
+      end
+      object GetCaracter1: TMenuItem
+        Caption = 'Get Caracter'
+        OnClick = GetCaracter1Click
+      end
+      object GetCaracter2: TMenuItem
+        Caption = 'Buscar Caracter'
+        OnClick = GetCaracter2Click
+      end
+      object FrecuenciaCaracter1: TMenuItem
+        Caption = 'Frecuencia Caracter'
+        OnClick = FrecuenciaCaracter1Click
+      end
+      object FrecuenciaCaracter2: TMenuItem
+        Caption = 'Mayor Frecuencia'
+        OnClick = FrecuenciaCaracter2Click
+      end
     end
   end
 end

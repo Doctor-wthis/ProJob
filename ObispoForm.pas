@@ -5,7 +5,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, ObispoNumero, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.Menus, ObispoNumero, Vcl.StdCtrls, ObispoCadena;
 
 type
   TForm1 = class(TForm)
@@ -47,6 +47,18 @@ type
     Label7: TLabel;
     Edit6: TEdit;
     Label8: TLabel;
+    SetCadena1: TMenuItem;
+    SetCadena2: TMenuItem;
+    Modificar3: TMenuItem;
+    Modificar4: TMenuItem;
+    Eliminar1: TMenuItem;
+    Eliminar2: TMenuItem;
+    GetCadena1: TMenuItem;
+    GetCadena2: TMenuItem;
+    GetCaracter1: TMenuItem;
+    GetCaracter2: TMenuItem;
+    FrecuenciaCaracter1: TMenuItem;
+    FrecuenciaCaracter2: TMenuItem;
 
     procedure FormCreate(Sender: TObject);
     procedure Numero2Click(Sender: TObject);
@@ -73,9 +85,22 @@ type
     procedure GetValue1Click(Sender: TObject);
     procedure EliminarDigito2Click(Sender: TObject);
     procedure EliminarDigito1Click(Sender: TObject);
+    procedure SetCadena1Click(Sender: TObject);
+    procedure SetCadena2Click(Sender: TObject);
+    procedure Modificar3Click(Sender: TObject);
+    procedure Modificar4Click(Sender: TObject);
+    procedure Eliminar1Click(Sender: TObject);
+    procedure Eliminar2Click(Sender: TObject);
+    procedure GetCadena1Click(Sender: TObject);
+    procedure GetCadena2Click(Sender: TObject);
+    procedure GetCaracter1Click(Sender: TObject);
+    procedure GetCaracter2Click(Sender: TObject);
+    procedure FrecuenciaCaracter1Click(Sender: TObject);
+    procedure FrecuenciaCaracter2Click(Sender: TObject);
 
   private
     obj:Numero;
+    objCad:Cadena;
   public
 
   end;
@@ -93,6 +118,16 @@ end;
 procedure TForm1.Anadir2Click(Sender: TObject);
 begin
   obj.EliminarPos(StrToInt(Edit2.Text));
+end;
+
+procedure TForm1.Eliminar1Click(Sender: TObject);
+begin
+  objCad.Eliminar(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.Eliminar2Click(Sender: TObject);
+begin
+  objCad.EliminarRepetidos;
 end;
 
 procedure TForm1.EliminarDigito1Click(Sender: TObject);
@@ -114,6 +149,7 @@ end;
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   obj:=Numero.Create;
+  objCad:=Cadena.Create;
 end;
 
 procedure TForm1.Frecuencia1Click(Sender: TObject);
@@ -126,9 +162,39 @@ begin
   Label1.Caption:=IntToStr(obj.Digito(StrToInt(Edit2.Text)));
 end;
 
+procedure TForm1.FrecuenciaCaracter1Click(Sender: TObject);
+begin
+  Label8.Caption:=IntToStr(objCad.FrecuenciaChar(Edit6.Text[1]));
+end;
+
+procedure TForm1.FrecuenciaCaracter2Click(Sender: TObject);
+begin
+  Label8.Caption:=objCad.MayorFrec;
+end;
+
 procedure TForm1.Funciones2Click(Sender: TObject);
 begin
   Label1.Caption:=IntToStr(obj.SumaDigitos);
+end;
+
+procedure TForm1.GetCadena1Click(Sender: TObject);
+begin
+  Label8.Caption:=objCad.getStr;
+end;
+
+procedure TForm1.GetCadena2Click(Sender: TObject);
+begin
+  Label8.Caption:=IntToStr(objCad.getLong);
+end;
+
+procedure TForm1.GetCaracter1Click(Sender: TObject);
+begin
+  Label8.Caption:=objCad.getChar(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.GetCaracter2Click(Sender: TObject);
+begin
+  Label8.Caption:=IntToStr(objCad.BuscarChar(Edit6.Text[1]));
 end;
 
 procedure TForm1.GetValue1Click(Sender: TObject);
@@ -144,6 +210,16 @@ end;
 procedure TForm1.Modificar2Click(Sender: TObject);
 begin
   obj.SeparaPares;
+end;
+
+procedure TForm1.Modificar3Click(Sender: TObject);
+begin
+  objCad.Modificar(StrToInt(Edit5.Text),Edit6.Text[1]);
+end;
+
+procedure TForm1.Modificar4Click(Sender: TObject);
+begin
+  objCad.Insertar(StrToInt(Edit5.Text),Edit6.Text[1]);
 end;
 
 procedure TForm1.Numero2Click(Sender: TObject);
@@ -199,6 +275,16 @@ end;
 procedure TForm1.SepararPares1Click(Sender: TObject);
 begin
   obj.SeparaPares;
+end;
+
+procedure TForm1.SetCadena1Click(Sender: TObject);
+begin
+  objCad.setStr(Edit4.Text);
+end;
+
+procedure TForm1.SetCadena2Click(Sender: TObject);
+begin
+  objCad.Anadir(Edit6.Text[1]);
 end;
 
 procedure TForm1.SetValue1Click(Sender: TObject);
