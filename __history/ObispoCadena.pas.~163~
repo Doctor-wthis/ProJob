@@ -39,13 +39,9 @@ procedure Cadena.setStr(s: string);
 var
   i:word;
 begin
-  i:=1;
-  while s='' do
-  begin
+  longitud:=Length(s);
+  for i := 1 to longitud do
     caracteres[i]:=s[i];
-    longitud:=longitud+1;
-    i:=i+1;
-  end;
 end;
 
 procedure Cadena.Anadir(c: char);
@@ -73,11 +69,12 @@ begin
   caracteres[pos]:=c;
 end;
 
+// No sabes Programar
 procedure Cadena.Eliminar(pos: Integer);
 var
   i: Integer;
 begin
-  if (pos>0) and (pos>=longitud) then
+  if (pos>0) and (pos<=longitud) then
   begin
   for i := pos to longitud-1 do
     caracteres[i]:=caracteres[i+1];
@@ -85,6 +82,15 @@ begin
   end
   // else raise Exception.Create('Posicion invalida');
 
+end;
+
+procedure Cadena.EliminarRepetidos;
+var
+  i: Integer;
+begin
+  for i := 1 to longitud do
+    if FrecuenciaChar(caracteres[i])>1 then
+      Eliminar(i);
 end;
 
 // ---------- Funciones ----------
@@ -152,15 +158,6 @@ begin
       buscado:=caracteres[i];
     end;
   MayorFrec:=buscado;
-end;
-
-procedure Cadena.EliminarRepetidos;
-var
-  i: Integer;
-begin
-  for i := 1 to longitud do
-    if FrecuenciaChar(caracteres[i])>1 then
-      Eliminar(i);
 end;
 
 end.

@@ -26,6 +26,7 @@ type
       function BuscarChar(c:char):integer;
       function FrecuenciaChar(c:char):integer;
       function MayorFrec:char;
+
   end;
 
 implementation
@@ -69,7 +70,6 @@ begin
   caracteres[pos]:=c;
 end;
 
-// No sabes Programar
 procedure Cadena.Eliminar(pos: Integer);
 var
   i: Integer;
@@ -82,6 +82,18 @@ begin
   end
   // else raise Exception.Create('Posicion invalida');
 
+end;
+
+// No sabes Programar!
+procedure Cadena.EliminarRepetidos;
+var
+  i: Integer;
+begin
+  while i<=longitud do
+    if FrecuenciaChar(caracteres[i])>1 then
+      Eliminar(i)
+    else
+      i:=i+1;
 end;
 
 // ---------- Funciones ----------
@@ -128,11 +140,9 @@ var
 begin
   i:=1;
   frec:=0;
-  while i<=longitud do
-  begin
+  for i := 1 to longitud do
     if caracteres[i]=c then
       frec:=frec+1;
-  end;
   FrecuenciaChar:=frec;
 end;
 
@@ -151,13 +161,5 @@ begin
   MayorFrec:=buscado;
 end;
 
-procedure Cadena.EliminarRepetidos;
-var
-  i: Integer;
-begin
-  for i := 1 to longitud do
-    if FrecuenciaChar(caracteres[i])>1 then
-      Eliminar(i);
-end;
-
 end.
+
