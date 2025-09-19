@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+  <Transactions>
+    <Transaction>2025/09/19 10:33:13.714,=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/09/19 10:34:01.166,C:\Users\Blanca Hoyos\Documents\ProJob\ObispoForm.pas=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2025/09/19 10:34:01.166,C:\Users\Blanca Hoyos\Documents\ProJob\ObispoForm.dfm=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2025/09/19 10:34:15.210,C:\Users\Blanca Hoyos\Documents\ProJob\ProJob.dproj=C:\Users\Blanca Hoyos\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2025/09/19 10:34:56.650,=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
+    <Transaction>2025/09/19 10:35:07.212,C:\Users\Blanca Hoyos\Documents\ProJob\ObispoNumero.pas=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
+    <Transaction>2025/09/19 10:51:10.083,=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
+    <Transaction>2025/09/19 10:51:24.707,C:\Users\Blanca Hoyos\Documents\ProJob\ObispoMate.pas=C:\Users\Blanca Hoyos\Documents\ProJob\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
