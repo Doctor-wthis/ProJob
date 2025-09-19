@@ -5,7 +5,7 @@ interface
 
 uses
   Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
-  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ObispoNumero, Vcl.Menus, Vcl.StdCtrls;
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, ObispoNumero, ObispoCadena, Vcl.Menus, Vcl.StdCtrls;
 
 Type
 
@@ -39,6 +39,29 @@ Type
     Frecuencia: TMenuItem;
     Conversor: TMenuItem;
     Romano: TMenuItem;
+    ProcedimientosCadena1: TMenuItem;
+    ProcedimientosCadena2: TMenuItem;
+    SetCadena1: TMenuItem;
+    Anadir: TMenuItem;
+    ModificarCadena: TMenuItem;
+    InsertarCadena: TMenuItem;
+    EliminarCadena: TMenuItem;
+    EliminarCaracterCadena: TMenuItem;
+    GetLongitud: TMenuItem;
+    GetCaracter: TMenuItem;
+    GetCadena: TMenuItem;
+    BuscarCaracter: TMenuItem;
+    FrecuenciaCaracter: TMenuItem;
+    MayorFrecuencia: TMenuItem;
+    NumeroPalabras: TMenuItem;
+    PalabraNumero: TMenuItem;
+    Edit4: TEdit;
+    Edit5: TEdit;
+    Edit6: TEdit;
+    Label5: TLabel;
+    Label6: TLabel;
+    Label7: TLabel;
+    Label8: TLabel;
 
     {Procedimientos Numero}
     procedure FormCreate(Sender: TObject);
@@ -63,9 +86,28 @@ Type
     procedure ConversorClick(Sender: TObject);
     procedure RomanoClick(Sender: TObject);
 
+    {Procedimientos Cadena}
+    procedure SetCadena1Click(Sender: TObject);
+    procedure AnadirClick(Sender: TObject);
+    procedure ModificarCadenaClick(Sender: TObject);
+    procedure InsertarCadenaClick(Sender: TObject);
+    procedure EliminarCadenaClick(Sender: TObject);
+    procedure EliminarCaracterCadenaClick(Sender: TObject);
+
+    {Funciones Cadena}
+    procedure GetLongitudClick(Sender: TObject);
+    procedure GetCaracterClick(Sender: TObject);
+    procedure GetCadenaClick(Sender: TObject);
+    procedure BuscarCaracterClick(Sender: TObject);
+    procedure FrecuenciaCaracterClick(Sender: TObject);
+    procedure MayorFrecuenciaClick(Sender: TObject);
+    procedure NumeroPalabrasClick(Sender: TObject);
+    procedure PalabraNumeroClick(Sender: TObject);
+
   Private
 
     number : Numero;
+    chain : Cadena;
 
   Public
 
@@ -82,6 +124,7 @@ implementation
 procedure TForm1.FormCreate(Sender: TObject);
 begin
   number := Numero.Create;
+  chain := Cadena.Create;
 end;
 
 {Procedimientos Numero}
@@ -176,6 +219,80 @@ end;
 procedure TForm1.RomanoClick(Sender: TObject);
 begin
   Label4.Caption := number.Romano;
+end;
+
+{Procedimientos Cadena}
+
+procedure TForm1.SetCadena1Click(Sender: TObject);
+begin
+  chain.SetCadena(Edit4.Text);
+end;
+
+procedure TForm1.AnadirClick(Sender: TObject);
+begin
+  chain.Anadir(Edit6.Text[1]);
+end;
+
+procedure TForm1.ModificarCadenaClick(Sender: TObject);
+begin
+  chain.Modificar(StrToInt(Edit5.Text),Edit6.Text[1]);
+end;
+
+procedure TForm1.InsertarCadenaClick(Sender: TObject);
+begin
+  chain.Insertar(StrToInt(Edit5.Text),Edit6.Text[1]);
+end;
+
+procedure TForm1.EliminarCadenaClick(Sender: TObject);
+begin
+  chain.Eliminar(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.EliminarCaracterCadenaClick(Sender: TObject);
+begin
+  chain.EliminarChar(Edit6.Text[1]);
+end;
+
+{Funciones Cadena}
+
+procedure TForm1.GetLongitudClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.GetLong);
+end;
+
+procedure TForm1.GetCaracterClick(Sender: TObject);
+begin
+  Label8.Caption := chain.GetChar(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.GetCadenaClick(Sender: TObject);
+begin
+  Label8.Caption := chain.GetCadena;
+end;
+
+procedure TForm1.BuscarCaracterClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.BuscarChar(Edit6.Text[1]));
+end;
+
+procedure TForm1.FrecuenciaCaracterClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.FrecuenciaChar(Edit6.Text[1]));
+end;
+
+procedure TForm1.MayorFrecuenciaClick(Sender: TObject);
+begin
+  Label8.Caption := chain.MayorFrec;
+end;
+
+procedure TForm1.NumeroPalabrasClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.NumPal);
+end;
+
+procedure TForm1.PalabraNumeroClick(Sender: TObject);
+begin
+  Label8.Caption := chain.Palabra(StrToInt(Edit6.Text));
 end;
 
 end.

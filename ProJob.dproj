@@ -129,6 +129,7 @@
         </DCCReference>
         <DCCReference Include="ObispoNumero.pas"/>
         <DCCReference Include="ObispoMate.pas"/>
+        <DCCReference Include="ObispoCadena.pas"/>
         <BuildConfiguration Include="Base">
             <Key>Base</Key>
         </BuildConfiguration>
