@@ -1,3 +1,4 @@
+
 unit ObispoNumero;
 
 interface
@@ -34,6 +35,8 @@ Type
       Procedure OrdenAscendente;
       Procedure OrdenDescendente;
 
+      Procedure SuperInsertar(Buscado, Num: Cardinal);
+
       Function GetValue : cardinal;
       Function Digito(pos : byte) : byte;
       Function NumDig : byte;
@@ -43,11 +46,14 @@ Type
       Function Frecuencia(num : byte) : cardinal;
       Function Conversor(base : byte) : string;
       Function Romano : string;
+      Function ToDecim(Num: String; Base: Cardinal): Cardinal;
 
+      Function SuperBuscar(Num: Cardinal): Boolean;
   end;
 
 implementation
-
+Uses
+  ObispoCadena;
 
 Constructor Numero.Create;
 begin
@@ -142,6 +148,11 @@ begin
       Anadir(dig);
     end;
 end;
+
+Procedure Numero.SuperInsertar(Buscado, Num: Cardinal);
+Begin
+
+End;
 
 {Funciones}
 
@@ -242,5 +253,29 @@ begin
   end;
   Romano := roman;
 end;
+
+Function Numero.ToDecim(Num: String; Base: Cardinal): Cardinal;
+Var
+  i, j, Decim: Cardinal;
+  obj: Cadena;
+Begin
+  obj := Cadena.Create;
+  obj.SetCadena(Dec);
+  Decim := 0;
+  i := Length(Num);
+  j := 1;
+  while i >= 1 do
+  begin
+    Decim := Decim + (obj.BuscarChar(Num[i]) - 1)*Potencia(Base, j - 1);
+    i := i - 1;
+    j := j + 1;
+  end;
+  ToDecim := Decim;
+End;
+
+Function Numero.SuperBuscar(Num: Cardinal): Boolean;
+Begin
+  SuperBuscar := False;
+End;
 
 end.

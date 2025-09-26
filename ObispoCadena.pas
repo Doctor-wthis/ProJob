@@ -2,6 +2,8 @@
 unit ObispoCadena;
 
 interface
+Uses
+  System.SysUtils, System.Classes;
 
 Const
 
@@ -17,9 +19,11 @@ Const
             'X','Y','Z','á','é','í','ó','ú','Á',
             'É','Í','Ó','Ú'];
 
-  Separadores = [' ',',','.',';',':','(',')','[',']',
+  Separadores = [' ',',',';',':','(',')','[',']',
                  '{','"','#','@','$','*','%','!','-',
                  '}','_','=','+','\','|','?','/','~'];
+
+  Operadores = ['+','-','*','/'];
 
 Type
 
@@ -46,12 +50,22 @@ Type
       Function FrecuenciaChar(c : char) : word;
       Function MayorFrec : char;
 
+      {Nivel Palabra}
       Function NumPal : word;
-      Function Palabra(nu : word) : string;
+      Function Palabra(nu : word) : String;
+      Function SiguientePalabra(var i: Word): String;
+      Function MayorLongitud: String;
+
+      {Parcialito}
+      Function MayorValor: String;
+      Function SumaNumeros(Base: Word): String;
+      Function Aritmetica: Integer;
 
   end;
 
 implementation
+Uses
+  ObispoNumero;
 
 {Constructor}
 Constructor Cadena.Create;
@@ -196,6 +210,8 @@ begin
   MayorFrec := Mayor;
 end;
 
+{Nivel Palabra}
+
 Function Cadena.NumPal: Word;
 var
   i, cont : word;
@@ -233,6 +249,83 @@ begin
     s := s + Caracteres[Longitud];
   Palabra := s;
 end;
+
+Function Cadena.SiguientePalabra(var i: Word): String;
+var
+  s: String;
+begin
+  While (i <= Longitud) and (Caracteres[i] in Separadores) do
+    i := i + 1;
+  s := '';
+  While (i <= Longitud) and (Caracteres[i] in Chares) do
+  begin
+    s := s + Caracteres[i];
+    i := i + 1;
+  end;
+  SiguientePalabra := s;
+end;
+
+Function Cadena.MayorLongitud: String;
+Var
+  i, j: Word;
+  Mayor, Sucesor: String;
+Begin
+  i := 1;
+  j := 1;
+  Mayor := SiguientePalabra(i);
+  Sucesor := SiguientePalabra(i);
+  while j < NumPal do
+  begin
+    if  Length(Sucesor) > Length(Mayor) then
+      Mayor := Sucesor;
+    Sucesor := SiguientePalabra(i);
+    j := j + 1;
+  end;
+  MayorLongitud := Mayor;
+End;
+
+Function Cadena.MayorValor: String;
+Var
+  i, j: Word;
+  Mayor, Sucesor: String;
+Begin
+  i := 1;
+  j := 1;
+  Mayor := SiguientePalabra(i);
+  Sucesor := SiguientePalabra(i);
+  While j < NumPal do
+  begin
+    if StrToInt(Sucesor) > StrToInt(Mayor) then
+      Mayor := Sucesor;
+    Sucesor := SiguientePalabra(i);
+    j := j + 1;
+  end;
+  MayorValor := Mayor;
+End;
+
+Function Cadena.Aritmetica: Integer;
+Begin
+  Aritmetica := 0;
+End;
+
+Function Cadena.SumaNumeros(Base: Word): String;
+Var
+  i, j, nu: Word;
+  Suma: Cardinal;
+  obj: Numero;
+Begin
+  i := 1;
+  j := 1;
+  Suma := 0;
+  obj := Numero.Create;
+  while j <= NumPal do
+  begin
+    Suma := Suma + obj.ToDecim(SiguientePalabra(i), Base);
+    j := j + 1;
+  end;
+  obj.SetValue(Suma);
+  SumaNumeros := obj.Conversor(Base);
+End;
 
 
 end.

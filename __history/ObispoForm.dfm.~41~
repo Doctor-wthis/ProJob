@@ -1,0 +1,300 @@
+object Form1: TForm1
+  Left = 0
+  Top = 0
+  Caption = 'ProJob'
+  ClientHeight = 490
+  ClientWidth = 758
+  Color = clScrollBar
+  Font.Charset = ANSI_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -13
+  Font.Name = 'Lucida Sans Unicode'
+  Font.Style = []
+  Menu = ObMenu
+  Position = poDesigned
+  OnCreate = FormCreate
+  TextHeight = 16
+  object Label1: TLabel
+    Left = 168
+    Top = 51
+    Width = 54
+    Height = 16
+    Alignment = taCenter
+    Caption = 'N'#250'mero:'
+  end
+  object Label2: TLabel
+    Left = 168
+    Top = 91
+    Width = 57
+    Height = 16
+    Alignment = taCenter
+    Caption = 'Posici'#243'n:'
+  end
+  object Label3: TLabel
+    Left = 168
+    Top = 131
+    Width = 43
+    Height = 16
+    Alignment = taCenter
+    Caption = 'D'#237'gito:'
+  end
+  object Label4: TLabel
+    Left = 232
+    Top = 168
+    Width = 249
+    Height = 16
+    Alignment = taCenter
+    AutoSize = False
+    Color = clRed
+    ParentColor = False
+  end
+  object Label5: TLabel
+    Left = 168
+    Top = 232
+    Width = 50
+    Height = 16
+    Alignment = taCenter
+    Caption = 'Cadena:'
+  end
+  object Label6: TLabel
+    Left = 168
+    Top = 275
+    Width = 57
+    Height = 16
+    Alignment = taCenter
+    Caption = 'Posici'#243'n:'
+  end
+  object Label7: TLabel
+    Left = 168
+    Top = 320
+    Width = 56
+    Height = 16
+    Alignment = taCenter
+    Caption = 'Caracter:'
+  end
+  object Label8: TLabel
+    Left = 232
+    Top = 368
+    Width = 249
+    Height = 16
+    Alignment = taCenter
+    AutoSize = False
+    Color = clRed
+    ParentColor = False
+  end
+  object Edit1: TEdit
+    Left = 232
+    Top = 48
+    Width = 249
+    Height = 24
+    Alignment = taCenter
+    TabOrder = 0
+  end
+  object Edit2: TEdit
+    Left = 232
+    Top = 88
+    Width = 249
+    Height = 24
+    Alignment = taCenter
+    TabOrder = 1
+  end
+  object Edit3: TEdit
+    Left = 232
+    Top = 128
+    Width = 249
+    Height = 24
+    Alignment = taCenter
+    TabOrder = 2
+  end
+  object Edit4: TEdit
+    Left = 232
+    Top = 229
+    Width = 249
+    Height = 24
+    Alignment = taCenter
+    TabOrder = 3
+  end
+  object Edit5: TEdit
+    Left = 232
+    Top = 272
+    Width = 249
+    Height = 24
+    Alignment = taCenter
+    TabOrder = 4
+  end
+  object Edit6: TEdit
+    Left = 232
+    Top = 317
+    Width = 249
+    Height = 24
+    Alignment = taCenter
+    TabOrder = 5
+  end
+  object ObMenu: TMainMenu
+    Left = 696
+    Top = 32
+    object ProcedimientosNumero1: TMenuItem
+      Caption = 'Procedimientos (Numero)'
+      object SetValue1: TMenuItem
+        Caption = 'Set Value'
+        OnClick = SetValue1Click
+      end
+      object SetValue2: TMenuItem
+        Caption = 'A'#241'adir'
+        OnClick = SetValue2Click
+      end
+      object EliminarPosicin1: TMenuItem
+        Caption = 'Eliminar Posici'#243'n'
+        OnClick = EliminarPosicin1Click
+      end
+      object EliminarPosicin2: TMenuItem
+        Caption = 'Eliminar D'#237'gito'
+        OnClick = EliminarPosicin2Click
+      end
+      object Insertar1: TMenuItem
+        Caption = 'Insertar'
+        OnClick = Insertar1Click
+      end
+      object Modificar: TMenuItem
+        Caption = 'Modificar'
+        OnClick = ModificarClick
+      end
+      object SepararPares1: TMenuItem
+        Caption = 'Separar Pares'
+        OnClick = SepararPares1Click
+      end
+      object OrdenarAscendente: TMenuItem
+        Caption = 'Ordenar Ascendente'
+        OnClick = OrdenarAscendenteClick
+      end
+      object OrdenarDescendente: TMenuItem
+        Caption = 'Ordenar Descendente'
+        OnClick = OrdenarDescendenteClick
+      end
+    end
+    object ProcedimientosNumero2: TMenuItem
+      Caption = 'Funciones Numero'
+      object GetValue1: TMenuItem
+        Caption = 'Get Value'
+        OnClick = GetValue1Click
+      end
+      object Digito: TMenuItem
+        Caption = 'D'#237'gito'
+        OnClick = DigitoClick
+      end
+      object NumerodeDigitos: TMenuItem
+        Caption = 'N'#250'mero de D'#237'gitos'
+        OnClick = NumerodeDigitosClick
+      end
+      object SumaDigitos: TMenuItem
+        Caption = 'Suma D'#237'gitos'
+        OnClick = SumaDigitosClick
+      end
+      object NumeroMayor: TMenuItem
+        Caption = 'N'#250'mero Mayor'
+        OnClick = NumeroMayorClick
+      end
+      object NumeroMenor: TMenuItem
+        Caption = 'N'#250'mero Menor'
+        OnClick = NumeroMenorClick
+      end
+      object Frecuencia: TMenuItem
+        Caption = 'Frecuencia'
+        OnClick = FrecuenciaClick
+      end
+      object Conversor: TMenuItem
+        Caption = 'Conversor'
+        OnClick = ConversorClick
+      end
+      object Romano: TMenuItem
+        Caption = 'Romano'
+        OnClick = RomanoClick
+      end
+      object ADecimal: TMenuItem
+        Caption = 'A Decimal'
+        OnClick = ADecimalClick
+      end
+    end
+    object ProcedimientosCadena1: TMenuItem
+      Caption = 'Procedimientos (Cadena)'
+      object SetCadena1: TMenuItem
+        Caption = 'Set Cadena'
+        OnClick = SetCadena1Click
+      end
+      object Anadir: TMenuItem
+        Caption = 'A'#241'adir'
+        OnClick = AnadirClick
+      end
+      object ModificarCadena: TMenuItem
+        Caption = 'Modificar'
+        OnClick = ModificarCadenaClick
+      end
+      object InsertarCadena: TMenuItem
+        Caption = 'Insertar'
+        OnClick = InsertarCadenaClick
+      end
+      object EliminarCadena: TMenuItem
+        Caption = 'Eliminar'
+        OnClick = EliminarCadenaClick
+      end
+      object EliminarCaracterCadena: TMenuItem
+        Caption = 'Eliminar Caracter'
+        OnClick = EliminarCaracterCadenaClick
+      end
+    end
+    object ProcedimientosCadena2: TMenuItem
+      Caption = 'Funciones (Cadena)'
+      object GetLongitud: TMenuItem
+        Caption = 'Get Longitud'
+        OnClick = GetLongitudClick
+      end
+      object GetCaracter: TMenuItem
+        Caption = 'Get Caracter'
+        OnClick = GetCaracterClick
+      end
+      object GetCadena: TMenuItem
+        Caption = 'Get Cadena'
+        OnClick = GetCadenaClick
+      end
+      object BuscarCaracter: TMenuItem
+        Caption = 'Buscar Caracter'
+        OnClick = BuscarCaracterClick
+      end
+      object FrecuenciaCaracter: TMenuItem
+        Caption = 'Frecuencia Caracter'
+        OnClick = FrecuenciaCaracterClick
+      end
+      object MayorFrecuencia: TMenuItem
+        Caption = 'Mayor Frecuencia'
+        OnClick = MayorFrecuenciaClick
+      end
+      object NumeroPalabras: TMenuItem
+        Caption = 'N'#250'mero de Palabras'
+        OnClick = NumeroPalabrasClick
+      end
+      object PalabraNumero: TMenuItem
+        Caption = 'Palabra N'#250'mero'
+        OnClick = PalabraNumeroClick
+      end
+      object SiguientePalabra: TMenuItem
+        Caption = 'Siguiente Palabra'
+        OnClick = SiguientePalabraClick
+      end
+      object MayorLongitud: TMenuItem
+        Caption = 'Mayor Longitud'
+        OnClick = MayorLongitudClick
+      end
+      object MayorValor: TMenuItem
+        Caption = 'Mayor Valor'
+        OnClick = MayorValorClick
+      end
+      object SumaNumeros: TMenuItem
+        Caption = 'Suma N'#250'meros'
+        OnClick = SumaNumerosClick
+      end
+    end
+    object Parcialito1: TMenuItem
+      Caption = 'Parcialito'
+    end
+  end
+end

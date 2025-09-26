@@ -62,6 +62,13 @@ Type
     Label6: TLabel;
     Label7: TLabel;
     Label8: TLabel;
+    SiguientePalabra: TMenuItem;
+    Parcialito1: TMenuItem;
+    ADecimal: TMenuItem;
+    MayorLongitud: TMenuItem;
+    MayorValor: TMenuItem;
+    SumaNumeros: TMenuItem;
+    Aritmetica: TMenuItem;
 
     {Procedimientos Numero}
     procedure FormCreate(Sender: TObject);
@@ -85,6 +92,7 @@ Type
     procedure FrecuenciaClick(Sender: TObject);
     procedure ConversorClick(Sender: TObject);
     procedure RomanoClick(Sender: TObject);
+    procedure ADecimalClick(Sender: TObject);
 
     {Procedimientos Cadena}
     procedure SetCadena1Click(Sender: TObject);
@@ -103,6 +111,11 @@ Type
     procedure MayorFrecuenciaClick(Sender: TObject);
     procedure NumeroPalabrasClick(Sender: TObject);
     procedure PalabraNumeroClick(Sender: TObject);
+    procedure SiguientePalabraClick(Sender: TObject);
+    procedure MayorLongitudClick(Sender: TObject);
+    procedure MayorValorClick(Sender: TObject);
+    procedure SumaNumerosClick(Sender: TObject);
+    procedure AritmeticaClick(Sender: TObject);
 
   Private
 
@@ -115,6 +128,7 @@ Type
 
 var
   Form1: TForm1;
+  t: Word;
 
 implementation
 
@@ -125,6 +139,7 @@ procedure TForm1.FormCreate(Sender: TObject);
 begin
   number := Numero.Create;
   chain := Cadena.Create;
+  t := 1;
 end;
 
 {Procedimientos Numero}
@@ -221,6 +236,11 @@ begin
   Label4.Caption := number.Romano;
 end;
 
+procedure TForm1.ADecimalClick(Sender: TObject);
+begin
+  Label4.Caption := IntToStr(number.ToDecim(Edit1.Text,StrToInt(Edit2.Text)));
+end;
+
 {Procedimientos Cadena}
 
 procedure TForm1.SetCadena1Click(Sender: TObject);
@@ -232,6 +252,8 @@ procedure TForm1.AnadirClick(Sender: TObject);
 begin
   chain.Anadir(Edit6.Text[1]);
 end;
+
+
 
 procedure TForm1.ModificarCadenaClick(Sender: TObject);
 begin
@@ -293,6 +315,31 @@ end;
 procedure TForm1.PalabraNumeroClick(Sender: TObject);
 begin
   Label8.Caption := chain.Palabra(StrToInt(Edit6.Text));
+end;
+
+procedure TForm1.SiguientePalabraClick(Sender: TObject);
+begin
+  Label8.Caption := chain.SiguientePalabra(t);
+end;
+
+procedure TForm1.MayorLongitudClick(Sender: TObject);
+begin
+  Label8.Caption := chain.MayorLongitud;
+end;
+
+procedure TForm1.MayorValorClick(Sender: TObject);
+begin
+  Label8.Caption := chain.MayorValor;
+end;
+
+procedure TForm1.SumaNumerosClick(Sender: TObject);
+begin
+  Label8.Caption := chain.SumaNumeros(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.AritmeticaClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.Aritmetica);
 end;
 
 end.

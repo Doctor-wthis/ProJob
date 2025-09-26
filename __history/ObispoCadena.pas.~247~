@@ -1,0 +1,331 @@
+
+unit ObispoCadena;
+
+interface
+Uses
+  System.SysUtils, System.Classes;
+
+Const
+
+  Max = 2048;
+
+  Chares = ['0','1','2','3','4','5','6','8','9',
+            'a','b','c','d','e','f','g','h','i',
+            'j','k','l','m','n','ñ','o','p','q',
+            'r','s','t','u','v','w','x','y','z',
+            'A','B','C','D','E','F','G','I','J',
+            'K','H','I','J','K','L','M','N','Ñ',
+            'O','P','Q','R','S','T','U','V','W',
+            'X','Y','Z','á','é','í','ó','ú','Á',
+            'É','Í','Ó','Ú'];
+
+  Separadores = [' ',',','.',';',':','(',')','[',']',
+                 '{','"','#','@','$','*','%','!','-',
+                 '}','_','=','+','\','|','?','/','~'];
+
+  Operadores = ['+','-','*','/'];
+
+Type
+
+  Cadena = class
+    Private
+
+      Longitud : word;
+      Caracteres : array[1..Max] of char;
+
+    Public
+
+      Constructor Create;
+      Procedure SetCadena(s : string);
+      Procedure Anadir(c : char);
+      Procedure Modificar(pos : word; c : char);
+      Procedure Insertar(pos : word; c: char);
+      Procedure Eliminar(pos : word);
+      Procedure EliminarChar(c : char);
+
+      Function GetLong : word;
+      Function GetChar(pos : word) : char;
+      Function GetCadena : string;
+      Function BuscarChar(c : char) : word;
+      Function FrecuenciaChar(c : char) : word;
+      Function MayorFrec : char;
+
+      {Nivel Palabra}
+      Function NumPal : word;
+      Function Palabra(nu : word) : String;
+      Function SiguientePalabra(var i: Word): String;
+      Function MayorLongitud: String;
+
+      {Parcialito}
+      Function MayorValor: String;
+      Function SumaNumeros(Base: Word): String;
+      Function Aritmetica: Integer;
+
+  end;
+
+implementation
+Uses
+  ObispoNumero;
+
+{Constructor}
+Constructor Cadena.Create;
+begin
+  Longitud := 0;
+end;
+
+{Procedimientos}
+
+Procedure Cadena.SetCadena(s: string);
+var
+  i : word;
+begin
+  Longitud := Length(s);
+  for i := 1 to Longitud do
+    Caracteres[i] := s[i];
+end;
+
+Procedure Cadena.Anadir(c: Char);
+begin
+  Longitud := Longitud + 1;
+  Caracteres[Longitud] := c;
+end;
+
+Procedure Cadena.Modificar(pos: Word; c: Char);
+begin
+  Caracteres[pos] := c;
+end;
+
+Procedure Cadena.Insertar(pos: Word; c: Char);
+var
+  i : word;
+begin
+  Longitud := Longitud + 1;
+  i := Longitud;
+  While i > pos do
+  begin
+    Caracteres[i] := Caracteres [i-1];
+    i := i - 1;
+  end;
+  Caracteres[pos] := c;
+end;
+
+Procedure Cadena.Eliminar(pos: Word);
+var
+  i : word;
+begin
+  i := pos;
+  While i < Longitud do
+  begin
+    Caracteres[i] := Caracteres[i + 1];
+    i := i + 1;
+  end;
+  Longitud := Longitud - 1;
+end;
+
+Procedure Cadena.EliminarChar(c: Char);
+var
+  i : word;
+begin
+  i := 1;
+  While i <= Longitud do
+  begin
+    if Caracteres[i] = c then
+      Eliminar(i)
+    else
+      i := i +1;
+  end;
+end;
+
+{Funciones}
+
+Function Cadena.GetLong: Word;
+begin
+  GetLong := Longitud;
+end;
+
+Function Cadena.GetChar(pos: Word): Char;
+begin
+  GetChar := Caracteres[pos]
+end;
+
+Function Cadena.GetCadena: string;
+var
+ s : string;
+ i : word;
+begin
+  s := '';
+  i := 1;
+  while i <= Longitud do
+  begin
+    s := s + Caracteres[i];
+    i := i + 1;
+  end;
+  GetCadena := s;
+end;
+
+Function Cadena.BuscarChar(c: Char): Word;
+var
+  i, pos : word;
+begin
+  i := 1;
+  pos := 0;
+  while (i <= Longitud) and (pos = 0) do
+  begin
+    if Caracteres[i] = c then
+      pos := i
+    else
+      i := i + 1;
+  end;
+  BuscarChar := pos;
+end;
+
+Function Cadena.FrecuenciaChar(c: Char): Word;
+var
+  i, Cont : word;
+begin
+  Cont := 0;
+  i := 1;
+  while i <= Longitud do
+  begin
+    if Caracteres[i] = c then
+      Cont := Cont + 1;
+      i := i + 1;
+  end;
+  FrecuenciaChar := Cont;
+end;
+
+Function Cadena.MayorFrec: Char;
+var
+  i : word;
+  Mayor : char;
+begin
+  i := 1;
+  Mayor := Caracteres[i];
+  while i < Longitud do
+  begin
+    if FrecuenciaChar(Mayor) < FrecuenciaChar(Caracteres[i + 1]) then
+      Mayor := Caracteres[i + 1];
+      i := i + 1;
+  end;
+  MayorFrec := Mayor;
+end;
+
+{Nivel Palabra}
+
+Function Cadena.NumPal: Word;
+var
+  i, cont : word;
+begin
+  i := 1;
+  cont := 0;
+  while i < longitud do
+  begin
+    if (Caracteres[i] in Chares) and (Caracteres[i + 1] in Separadores) then
+      cont := cont + 1;
+    if (i = Longitud - 1) and (Caracteres[Longitud] in Chares) then
+      cont := cont + 1;
+    i := i + 1;
+  end;
+  NumPal := cont;
+end;
+
+Function Cadena.Palabra(nu: Word): string;
+var
+  s : string;
+  i, cont : word;
+begin
+  s := '';
+  i := 1;
+  cont := 0;
+  while (i < Longitud) and not (cont + 1 > nu) do
+  begin
+    if (cont + 1 = nu) and (Caracteres[i] in Chares) then
+      s := s + Caracteres[i];
+    if (Caracteres[i] in Chares) and (Caracteres[i + 1] in Separadores) then
+      cont := cont + 1;
+    i := i + 1;
+  end;
+  if (nu = NumPal) and (Caracteres[Longitud] in Chares) then
+    s := s + Caracteres[Longitud];
+  Palabra := s;
+end;
+
+Function Cadena.SiguientePalabra(var i: Word): String;
+var
+  s: String;
+begin
+  While (i <= Longitud) and (Caracteres[i] in Separadores) do
+    i := i + 1;
+  s := '';
+  While (i <= Longitud) and (Caracteres[i] in Chares) do
+  begin
+    s := s + Caracteres[i];
+    i := i + 1;
+  end;
+  SiguientePalabra := s;
+end;
+
+Function Cadena.MayorLongitud: String;
+Var
+  i, j: Word;
+  Mayor, Sucesor: String;
+Begin
+  i := 1;
+  j := 1;
+  Mayor := SiguientePalabra(i);
+  Sucesor := SiguientePalabra(i);
+  while j < NumPal do
+  begin
+    if  Length(Sucesor) > Length(Mayor) then
+      Mayor := Sucesor;
+    Sucesor := SiguientePalabra(i);
+    j := j + 1;
+  end;
+  MayorLongitud := Mayor;
+End;
+
+Function Cadena.MayorValor: String;
+Var
+  i, j: Word;
+  Mayor, Sucesor: String;
+Begin
+  i := 1;
+  j := 1;
+  Mayor := SiguientePalabra(i);
+  Sucesor := SiguientePalabra(i);
+  While j < NumPal do
+  begin
+    if Sucesor > Mayor then
+      Mayor := Sucesor;
+    Sucesor := SiguientePalabra(i);
+    j := j + 1;
+  end;
+  MayorValor := Mayor;
+End;
+
+Function Cadena.Aritmetica: Integer;
+Begin
+  Aritmetica := 0;
+End;
+
+Function Cadena.SumaNumeros(Base: Word): String;
+Var
+  i, j, nu: Word;
+  Suma: Cardinal;
+  obj: Numero;
+Begin
+  i := 1;
+  j := 1;
+  Suma := 0;
+  obj := Numero.Create;
+  while j <= NumPal do
+  begin
+    Suma := Suma + obj.ToDecim(SiguientePalabra(i), Base);
+    j := j + 1;
+  end;
+  obj.SetValue(Suma);
+  SumaNumeros := obj.Conversor(Base);
+End;
+
+
+end.
