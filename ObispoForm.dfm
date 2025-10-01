@@ -33,7 +33,7 @@ object Form1: TForm1
   object Label3: TLabel
     Left = 182
     Top = 139
-    Width = 60
+    Width = 45
     Height = 18
     Alignment = taCenter
     Caption = 'D'#237'gito:'
@@ -240,6 +240,10 @@ object Form1: TForm1
       object EliminarCaracterCadena: TMenuItem
         Caption = 'Eliminar Caracter'
         OnClick = EliminarCaracterCadenaClick
+      end
+      object AnadirPalabra: TMenuItem
+        Caption = 'A'#241'adir Palabra'
+        OnClick = AnadirPalabraClick
       end
     end
     object ProcedimientosCadena2: TMenuItem

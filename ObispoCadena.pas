@@ -51,6 +51,10 @@ Type
       Function MayorFrec : char;
 
       {Nivel Palabra}
+      Procedure AnadirPal(NewPal: String);
+      Procedure EliminarPal(Pos: Word);
+      Procedure InsertarPal(NewPal: String; Pos: Word);
+      Procedure ModificarPal(Pal: String; Pos: Word);
       Function NumPal : word;
       Function Palabra(nu : word) : String;
       Function SiguientePalabra(var i: Word): String;
@@ -212,6 +216,44 @@ end;
 
 {Nivel Palabra}
 
+Procedure Cadena.AnadirPal(NewPal: string);
+Var
+  i, j: Word;
+Begin
+  If Caracteres[Longitud] in Chares Then
+  Begin
+    Longitud := Longitud + 1;
+    i := Longitud;
+    Caracteres[i] := ' ';
+  End
+  Else
+    i := Longitud;
+  Longitud := Longitud + Length(NewPal);
+  i := i + 1;
+  j := 1;
+  While j <= Length(NewPal) Do
+  Begin
+    Caracteres[i] := NewPal[j];
+    j := j + 1;
+    i := i + 1;
+  End;
+End;
+
+Procedure Cadena.EliminarPal(Pos: Word);
+Begin
+
+End;
+
+Procedure Cadena.InsertarPal(NewPal: string; Pos: Word);
+Begin
+
+End;
+
+Procedure Cadena.ModificarPal(Pal: string; Pos: Word);
+Begin
+
+End;
+
 Function Cadena.NumPal: Word;
 var
   i, cont : word;
@@ -326,6 +368,5 @@ Begin
   obj.SetValue(Suma);
   SumaNumeros := obj.Conversor(Base);
 End;
-
 
 end.

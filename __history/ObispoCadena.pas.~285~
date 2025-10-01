@@ -19,7 +19,7 @@ Const
             'X','Y','Z','á','é','í','ó','ú','Á',
             'É','Í','Ó','Ú'];
 
-  Separadores = [' ',',','.',';',':','(',')','[',']',
+  Separadores = [' ',',',';',':','(',')','[',']',
                  '{','"','#','@','$','*','%','!','-',
                  '}','_','=','+','\','|','?','/','~'];
 
@@ -51,6 +51,10 @@ Type
       Function MayorFrec : char;
 
       {Nivel Palabra}
+      Procedure AnadirPal(NewPal: String);
+      Procedure EliminarPal(Pos: Word);
+      Procedure InsertarPal(NewPal: String; Pos: Word);
+      Procedure ModificarPal(Pal: String; Pos: Word);
       Function NumPal : word;
       Function Palabra(nu : word) : String;
       Function SiguientePalabra(var i: Word): String;
@@ -59,7 +63,7 @@ Type
       {Parcialito}
       Function MayorValor: String;
       Function SumaNumeros(Base: Word): String;
-      Function Aritmetica: Real;
+      Function Aritmetica: Integer;
 
   end;
 
@@ -212,6 +216,46 @@ end;
 
 {Nivel Palabra}
 
+Procedure Cadena.AnadirPal(NewPal: string);
+Var
+  i, j: Word;
+Begin
+  If Caracteres[Longitud] in Chares Then
+  Begin
+    Longitud := Longitud + 1;
+    i := Longitud;
+    Caracteres[i] := ' ';
+  End;
+
+
+
+
+  Longitud := Longitud + Length(NewPal);
+  i := i + 1;
+  j := 1;
+  While j <= Length(NewPal) Do
+  Begin
+    Caracteres[i] := NewPal[j];
+    j := j + 1;
+    i := i + 1;
+  End;
+End;
+
+Procedure Cadena.EliminarPal(Pos: Word);
+Begin
+
+End;
+
+Procedure Cadena.InsertarPal(NewPal: string; Pos: Word);
+Begin
+
+End;
+
+Procedure Cadena.ModificarPal(Pal: string; Pos: Word);
+Begin
+
+End;
+
 Function Cadena.NumPal: Word;
 var
   i, cont : word;
@@ -295,7 +339,7 @@ Begin
   Sucesor := SiguientePalabra(i);
   While j < NumPal do
   begin
-    if Sucesor > Mayor then
+    if StrToInt(Sucesor) > StrToInt(Mayor) then
       Mayor := Sucesor;
     Sucesor := SiguientePalabra(i);
     j := j + 1;
@@ -303,27 +347,9 @@ Begin
   MayorValor := Mayor;
 End;
 
-Function Cadena.Aritmetica: Real;
-Var
-  Resultado, nu: Real;
-  Signo: Char;
-  i, j: Word;
+Function Cadena.Aritmetica: Integer;
 Begin
-  i := 1;
-  j := 1;
-  Resultado := 0;
-  nu := StrToFloat(SiguientePalabra(i));
-
-  while j < NumPal do
-  begin
-    Signo := Caracteres[i];
-    if Signo = '+' then
-      Resultado := Resultado + nu
-    else
-      Resultado := Resultado - nu;
-    nu := StrToFloat(SiguientePalabra(i));
-  end;
-  Aritmetica := Resultado;
+  Aritmetica := 0;
 End;
 
 Function Cadena.SumaNumeros(Base: Word): String;
@@ -344,6 +370,5 @@ Begin
   obj.SetValue(Suma);
   SumaNumeros := obj.Conversor(Base);
 End;
-
 
 end.

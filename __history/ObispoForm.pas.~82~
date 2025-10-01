@@ -117,7 +117,6 @@ Type
     procedure SumaNumerosClick(Sender: TObject);
     procedure AritmeticaClick(Sender: TObject);
 
-
   Private
 
     number : Numero;
@@ -334,6 +333,11 @@ end;
 procedure TForm1.SumaNumerosClick(Sender: TObject);
 begin
   Label8.Caption := chain.SumaNumeros(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.AritmeticaClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.Aritmetica);
 end;
 
 end.

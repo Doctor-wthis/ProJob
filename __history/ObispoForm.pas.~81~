@@ -68,6 +68,7 @@ Type
     MayorLongitud: TMenuItem;
     MayorValor: TMenuItem;
     SumaNumeros: TMenuItem;
+    Aritmetica: TMenuItem;
 
     {Procedimientos Numero}
     procedure FormCreate(Sender: TObject);
@@ -114,7 +115,7 @@ Type
     procedure MayorLongitudClick(Sender: TObject);
     procedure MayorValorClick(Sender: TObject);
     procedure SumaNumerosClick(Sender: TObject);
-
+    procedure AritmeticaClick(Sender: TObject);
 
   Private
 
@@ -252,6 +253,8 @@ begin
   chain.Anadir(Edit6.Text[1]);
 end;
 
+
+
 procedure TForm1.ModificarCadenaClick(Sender: TObject);
 begin
   chain.Modificar(StrToInt(Edit5.Text),Edit6.Text[1]);
@@ -332,6 +335,11 @@ end;
 procedure TForm1.SumaNumerosClick(Sender: TObject);
 begin
   Label8.Caption := chain.SumaNumeros(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.AritmeticaClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.Aritmetica);
 end;
 
 end.
