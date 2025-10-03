@@ -69,6 +69,7 @@ Type
     MayorValor: TMenuItem;
     SumaNumeros: TMenuItem;
     Aritmetica: TMenuItem;
+    AnadirPalabra: TMenuItem;
 
     {Procedimientos Numero}
     procedure FormCreate(Sender: TObject);
@@ -101,6 +102,7 @@ Type
     procedure InsertarCadenaClick(Sender: TObject);
     procedure EliminarCadenaClick(Sender: TObject);
     procedure EliminarCaracterCadenaClick(Sender: TObject);
+    procedure AnadirPalabraClick(Sender: TObject);
 
     {Funciones Cadena}
     procedure GetLongitudClick(Sender: TObject);
@@ -116,6 +118,7 @@ Type
     procedure MayorValorClick(Sender: TObject);
     procedure SumaNumerosClick(Sender: TObject);
     procedure AritmeticaClick(Sender: TObject);
+
 
   Private
 
@@ -253,8 +256,6 @@ begin
   chain.Anadir(Edit6.Text[1]);
 end;
 
-
-
 procedure TForm1.ModificarCadenaClick(Sender: TObject);
 begin
   chain.Modificar(StrToInt(Edit5.Text),Edit6.Text[1]);
@@ -273,6 +274,11 @@ end;
 procedure TForm1.EliminarCaracterCadenaClick(Sender: TObject);
 begin
   chain.EliminarChar(Edit6.Text[1]);
+end;
+
+procedure TForm1.AnadirPalabraClick(Sender: TObject);
+begin
+  chain.AnadirPal(Edit4.Text);
 end;
 
 {Funciones Cadena}

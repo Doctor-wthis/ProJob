@@ -46,7 +46,7 @@ Type
       Function GetLong : word;
       Function GetChar(pos : word) : char;
       Function GetCadena : string;
-      Function BuscarChar(c : char) : word;
+      Function BuscarChar(c : char) : Cardinal;
       Function FrecuenciaChar(c : char) : word;
       Function MayorFrec : char;
 
@@ -167,9 +167,10 @@ begin
   GetCadena := s;
 end;
 
-Function Cadena.BuscarChar(c: Char): Word;
+Function Cadena.BuscarChar(c: Char): Cardinal;
 var
-  i, pos : word;
+  i: word;
+  pos: Cardinal;
 begin
   i := 1;
   pos := 0;
@@ -220,7 +221,7 @@ Procedure Cadena.AnadirPal(NewPal: string);
 Var
   i, j: Word;
 Begin
-  If Caracteres[Longitud] in Chares Then
+  If CharInSet(Caracteres[Longitud], Chares) Then
   Begin
     Longitud := Longitud + 1;
     i := Longitud;
@@ -262,9 +263,9 @@ begin
   cont := 0;
   while i < longitud do
   begin
-    if (Caracteres[i] in Chares) and (Caracteres[i + 1] in Separadores) then
+    if CharInSet(Caracteres[i], Chares) and CharInSet(Caracteres[i + 1], Separadores) then
       cont := cont + 1;
-    if (i = Longitud - 1) and (Caracteres[Longitud] in Chares) then
+    if (i = Longitud - 1) and CharInSet(Caracteres[Longitud], Chares) then
       cont := cont + 1;
     i := i + 1;
   end;
@@ -281,13 +282,13 @@ begin
   cont := 0;
   while (i < Longitud) and not (cont + 1 > nu) do
   begin
-    if (cont + 1 = nu) and (Caracteres[i] in Chares) then
+    if (cont + 1 = nu) and CharInSet(Caracteres[i], Chares) then
       s := s + Caracteres[i];
-    if (Caracteres[i] in Chares) and (Caracteres[i + 1] in Separadores) then
+    if CharInSet(Caracteres[i], Chares) and CharInSet(Caracteres[i + 1], Separadores) then
       cont := cont + 1;
     i := i + 1;
   end;
-  if (nu = NumPal) and (Caracteres[Longitud] in Chares) then
+  if (nu = NumPal) and CharInSet(Caracteres[Longitud], Chares) then
     s := s + Caracteres[Longitud];
   Palabra := s;
 end;
@@ -296,10 +297,10 @@ Function Cadena.SiguientePalabra(var i: Word): String;
 var
   s: String;
 begin
-  While (i <= Longitud) and (Caracteres[i] in Separadores) do
+  While (i <= Longitud) and CharInSet(Caracteres[i], Separadores) do
     i := i + 1;
   s := '';
-  While (i <= Longitud) and (Caracteres[i] in Chares) do
+  While (i <= Longitud) and CharInSet(Caracteres[i], Chares) do
   begin
     s := s + Caracteres[i];
     i := i + 1;
@@ -352,7 +353,7 @@ End;
 
 Function Cadena.SumaNumeros(Base: Word): String;
 Var
-  i, j, nu: Word;
+  i, j: Word;
   Suma: Cardinal;
   obj: Numero;
 Begin

@@ -7,7 +7,7 @@ uses
   ObispoMate, Math;
 
 const
-  Dec : string = '0123456789ABCDEF';
+  Dec : string= '0123456789ABCDEF';
 
   Dic : Array[1..4,1..9] of String=
   (('I','II','III','IV','V','VI','VII','VIII','IX'),
@@ -16,13 +16,10 @@ const
   ('M','MM','MMM','Mv','v','vM','vMM','vMMM','vv'));
 
 Type
-
   Numero = class
     private
-
       Value : cardinal;
     public
-
       Constructor Create;
 
       Procedure SetValue(num : cardinal);
@@ -34,7 +31,8 @@ Type
       Procedure SeparaPares;
       Procedure OrdenAscendente;
       Procedure OrdenDescendente;
-      Procedure SuperInsertar(Buscado, Num: Cardinal);
+      Procedure Invertir;
+      Procedure Rotar(veces: byte);
 
       Function GetValue : cardinal;
       Function Digito(pos : byte) : byte;
@@ -46,8 +44,9 @@ Type
       Function Conversor(base : byte) : string;
       Function Romano : string;
       Function ToDecim(Num: String; Base: Cardinal): Cardinal;
+      Function Invertido: Cardinal;
+      Function ImparOnPosPar: Cardinal;
 
-      Function SuperBuscar(Num: Cardinal): Boolean;
   end;
 
 implementation
@@ -148,9 +147,29 @@ begin
     end;
 end;
 
-Procedure Numero.SuperInsertar(Buscado, Num: Cardinal);
+Procedure Numero.Invertir;
+Var
+  aux: Cardinal;
 Begin
+  aux:= 0;
+  While Value > 0 do
+  Begin
+    aux:= aux * 10 + Value mod 10;
+    Value:= Value div 10
+  End;
+  Value:= aux;
+End;
 
+Procedure Numero.Rotar(veces: Byte);
+Var
+  i, k: Cardinal;
+Begin
+  k:= Potencia(10, NumDig-1); i:= 1;
+  while (veces < NumDig) and (i <= veces) do
+  begin
+    Value:= (Value mod 10) * k + Value div 10;
+    i:= i + 1;
+  end;
 End;
 
 {Funciones}
@@ -265,14 +284,28 @@ Begin
   j := 1;
   while i >= 1 do
   begin
-    Decim := Decim + (obj.BuscarChar(Num[i]) - 1)*Potencia(Base, j - 1);
+    Decim := Decim + (obj.BuscarChar(Num[i]) - 1) * Potencia(Base, j - 1);
     i := i - 1;
     j := j + 1;
   end;
   ToDecim := Decim;
 End;
 
-Function Numero.SuperBuscar(Num: Cardinal): Boolean;
+Function Numero.Invertido: Cardinal;
+Var
+  aux, inv: Cardinal;
+Begin
+  aux:= Value;
+  inv:= 0;
+  while aux>0 do
+  begin
+    inv:= inv * 10 + aux mod 10;
+    aux:= aux div 10;
+  end;
+  Invertido:= inv;
+End;
+
+Function Numero.ImparOnPosPar: Cardinal;
 Begin
 
 End;

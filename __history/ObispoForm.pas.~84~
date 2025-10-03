@@ -69,6 +69,8 @@ Type
     MayorValor: TMenuItem;
     SumaNumeros: TMenuItem;
     Aritmetica: TMenuItem;
+    AnadirPalabra: TMenuItem;
+    Invertir: TMenuItem;
 
     {Procedimientos Numero}
     procedure FormCreate(Sender: TObject);
@@ -81,6 +83,7 @@ Type
     procedure SepararPares1Click(Sender: TObject);
     procedure OrdenarAscendenteClick(Sender: TObject);
     procedure OrdenarDescendenteClick(Sender: TObject);
+    procedure InvertirClick(Sender: TObject);
 
     {Funciones Numero}
     procedure GetValue1Click(Sender: TObject);
@@ -101,6 +104,7 @@ Type
     procedure InsertarCadenaClick(Sender: TObject);
     procedure EliminarCadenaClick(Sender: TObject);
     procedure EliminarCaracterCadenaClick(Sender: TObject);
+    procedure AnadirPalabraClick(Sender: TObject);
 
     {Funciones Cadena}
     procedure GetLongitudClick(Sender: TObject);
@@ -116,6 +120,8 @@ Type
     procedure MayorValorClick(Sender: TObject);
     procedure SumaNumerosClick(Sender: TObject);
     procedure AritmeticaClick(Sender: TObject);
+
+
 
   Private
 
@@ -189,6 +195,11 @@ begin
   number.OrdenDescendente;
 end;
 
+procedure TForm1.InvertirClick(Sender: TObject);
+begin
+  number.Invertir;
+end;
+
 {Funciones Numero}
 
 procedure TForm1.GetValue1Click(Sender: TObject);
@@ -253,8 +264,6 @@ begin
   chain.Anadir(Edit6.Text[1]);
 end;
 
-
-
 procedure TForm1.ModificarCadenaClick(Sender: TObject);
 begin
   chain.Modificar(StrToInt(Edit5.Text),Edit6.Text[1]);
@@ -265,6 +274,8 @@ begin
   chain.Insertar(StrToInt(Edit5.Text),Edit6.Text[1]);
 end;
 
+
+
 procedure TForm1.EliminarCadenaClick(Sender: TObject);
 begin
   chain.Eliminar(StrToInt(Edit5.Text));
@@ -273,6 +284,11 @@ end;
 procedure TForm1.EliminarCaracterCadenaClick(Sender: TObject);
 begin
   chain.EliminarChar(Edit6.Text[1]);
+end;
+
+procedure TForm1.AnadirPalabraClick(Sender: TObject);
+begin
+  chain.AnadirPal(Edit4.Text);
 end;
 
 {Funciones Cadena}
@@ -339,7 +355,7 @@ end;
 
 procedure TForm1.AritmeticaClick(Sender: TObject);
 begin
-  Label8.Caption := FloatToStr(chain.Aritmetica);
+  Label8.Caption := IntToStr(chain.Aritmetica);
 end;
 
 end.

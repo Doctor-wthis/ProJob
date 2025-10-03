@@ -70,6 +70,10 @@ Type
     SumaNumeros: TMenuItem;
     Aritmetica: TMenuItem;
     AnadirPalabra: TMenuItem;
+    Invertir: TMenuItem;
+    Rotar: TMenuItem;
+    Invertido: TMenuItem;
+    ImparesenPosicinPar1: TMenuItem;
 
     {Procedimientos Numero}
     procedure FormCreate(Sender: TObject);
@@ -82,6 +86,8 @@ Type
     procedure SepararPares1Click(Sender: TObject);
     procedure OrdenarAscendenteClick(Sender: TObject);
     procedure OrdenarDescendenteClick(Sender: TObject);
+    procedure InvertirClick(Sender: TObject);
+    procedure RotarClick(Sender: TObject);
 
     {Funciones Numero}
     procedure GetValue1Click(Sender: TObject);
@@ -94,6 +100,8 @@ Type
     procedure ConversorClick(Sender: TObject);
     procedure RomanoClick(Sender: TObject);
     procedure ADecimalClick(Sender: TObject);
+    procedure InvertidoClick(Sender: TObject);
+    procedure ImparesenPosicinPar1Click(Sender: TObject);
 
     {Procedimientos Cadena}
     procedure SetCadena1Click(Sender: TObject);
@@ -118,7 +126,6 @@ Type
     procedure MayorValorClick(Sender: TObject);
     procedure SumaNumerosClick(Sender: TObject);
     procedure AritmeticaClick(Sender: TObject);
-
 
   Private
 
@@ -192,6 +199,16 @@ begin
   number.OrdenDescendente;
 end;
 
+procedure TForm1.InvertirClick(Sender: TObject);
+begin
+  number.Invertir;
+end;
+
+procedure TForm1.RotarClick(Sender: TObject);
+begin
+  number.Rotar(StrToInt(Edit3.Text));
+end;
+
 {Funciones Numero}
 
 procedure TForm1.GetValue1Click(Sender: TObject);
@@ -242,6 +259,16 @@ end;
 procedure TForm1.ADecimalClick(Sender: TObject);
 begin
   Label4.Caption := IntToStr(number.ToDecim(Edit1.Text,StrToInt(Edit2.Text)));
+end;
+
+procedure TForm1.InvertidoClick(Sender: TObject);
+begin
+  Label4.Caption:= IntToStr(number.Invertido);
+end;
+
+procedure TForm1.ImparesenPosicinPar1Click(Sender: TObject);
+begin
+  Label4.Caption:= IntToStr(number.ImparOnPosPar);
 end;
 
 {Procedimientos Cadena}

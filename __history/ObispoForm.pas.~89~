@@ -69,6 +69,10 @@ Type
     MayorValor: TMenuItem;
     SumaNumeros: TMenuItem;
     Aritmetica: TMenuItem;
+    AnadirPalabra: TMenuItem;
+    Invertir: TMenuItem;
+    Rotar: TMenuItem;
+    Invertido: TMenuItem;
 
     {Procedimientos Numero}
     procedure FormCreate(Sender: TObject);
@@ -81,6 +85,8 @@ Type
     procedure SepararPares1Click(Sender: TObject);
     procedure OrdenarAscendenteClick(Sender: TObject);
     procedure OrdenarDescendenteClick(Sender: TObject);
+    procedure InvertirClick(Sender: TObject);
+    procedure RotarClick(Sender: TObject);
 
     {Funciones Numero}
     procedure GetValue1Click(Sender: TObject);
@@ -93,6 +99,7 @@ Type
     procedure ConversorClick(Sender: TObject);
     procedure RomanoClick(Sender: TObject);
     procedure ADecimalClick(Sender: TObject);
+    procedure InvertidoClick(Sender: TObject);
 
     {Procedimientos Cadena}
     procedure SetCadena1Click(Sender: TObject);
@@ -101,6 +108,7 @@ Type
     procedure InsertarCadenaClick(Sender: TObject);
     procedure EliminarCadenaClick(Sender: TObject);
     procedure EliminarCaracterCadenaClick(Sender: TObject);
+    procedure AnadirPalabraClick(Sender: TObject);
 
     {Funciones Cadena}
     procedure GetLongitudClick(Sender: TObject);
@@ -115,6 +123,9 @@ Type
     procedure MayorLongitudClick(Sender: TObject);
     procedure MayorValorClick(Sender: TObject);
     procedure SumaNumerosClick(Sender: TObject);
+    procedure AritmeticaClick(Sender: TObject);
+
+
 
 
   Private
@@ -189,6 +200,16 @@ begin
   number.OrdenDescendente;
 end;
 
+procedure TForm1.InvertirClick(Sender: TObject);
+begin
+  number.Invertir;
+end;
+
+procedure TForm1.RotarClick(Sender: TObject);
+begin
+  number.Rotar(StrToInt(Edit3.Text));
+end;
+
 {Funciones Numero}
 
 procedure TForm1.GetValue1Click(Sender: TObject);
@@ -241,6 +262,11 @@ begin
   Label4.Caption := IntToStr(number.ToDecim(Edit1.Text,StrToInt(Edit2.Text)));
 end;
 
+procedure TForm1.InvertidoClick(Sender: TObject);
+begin
+  Label4.Caption:= IntToStr(number.Invertido);
+end;
+
 {Procedimientos Cadena}
 
 procedure TForm1.SetCadena1Click(Sender: TObject);
@@ -271,6 +297,11 @@ end;
 procedure TForm1.EliminarCaracterCadenaClick(Sender: TObject);
 begin
   chain.EliminarChar(Edit6.Text[1]);
+end;
+
+procedure TForm1.AnadirPalabraClick(Sender: TObject);
+begin
+  chain.AnadirPal(Edit4.Text);
 end;
 
 {Funciones Cadena}
@@ -333,6 +364,11 @@ end;
 procedure TForm1.SumaNumerosClick(Sender: TObject);
 begin
   Label8.Caption := chain.SumaNumeros(StrToInt(Edit5.Text));
+end;
+
+procedure TForm1.AritmeticaClick(Sender: TObject);
+begin
+  Label8.Caption := IntToStr(chain.Aritmetica);
 end;
 
 end.

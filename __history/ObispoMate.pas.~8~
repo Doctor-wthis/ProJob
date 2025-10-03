@@ -3,12 +3,12 @@ unit ObispoMate;
 
 interface
 
-Function Potencia(base,exponente : byte) : Cardinal;
-Function Factorial(num : byte) : Cardinal;
+Function Potencia(base,exponente : byte) : cardinal;
+Function Factorial(num : byte) : cardinal;
 
 implementation
 
-Function Potencia(base,exponente : byte) : Cardinal;
+Function Potencia(base,exponente : byte) : cardinal;
 var
   i : byte;
   pot : cardinal;
@@ -19,7 +19,7 @@ begin
   Potencia := pot;
 end;
 
-Function Factorial(num : byte) : Cardinal;
+Function Factorial(num : byte) : cardinal;
 var
   i : byte;
   fact : cardinal;

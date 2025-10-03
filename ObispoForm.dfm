@@ -171,6 +171,14 @@ object Form1: TForm1
         Caption = 'Ordenar Descendente'
         OnClick = OrdenarDescendenteClick
       end
+      object Invertir: TMenuItem
+        Caption = 'Invertir'
+        OnClick = InvertirClick
+      end
+      object Rotar: TMenuItem
+        Caption = 'Rotar'
+        OnClick = RotarClick
+      end
     end
     object ProcedimientosNumero2: TMenuItem
       Caption = 'Funciones Numero'
@@ -213,6 +221,14 @@ object Form1: TForm1
       object ADecimal: TMenuItem
         Caption = 'A Decimal'
         OnClick = ADecimalClick
+      end
+      object Invertido: TMenuItem
+        Caption = 'Invertido'
+        OnClick = InvertidoClick
+      end
+      object ImparesenPosicinPar1: TMenuItem
+        Caption = 'Impares en Posici'#243'n Par'
+        OnClick = ImparesenPosicinPar1Click
       end
     end
     object ProcedimientosCadena1: TMenuItem

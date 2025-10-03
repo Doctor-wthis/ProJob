@@ -220,9 +220,14 @@ Procedure Cadena.AnadirPal(NewPal: string);
 Var
   i, j: Word;
 Begin
-  Longitud := Longitud + 1;
-  i := Longitud;
-  Caracteres[i] := ' ';
+  If Caracteres[Longitud] in Chares Then
+  Begin
+    Longitud := Longitud + 1;
+    i := Longitud;
+    Caracteres[i] := ' ';
+  End
+  Else
+    i := Longitud;
   Longitud := Longitud + Length(NewPal);
   i := i + 1;
   j := 1;

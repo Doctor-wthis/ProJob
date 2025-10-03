@@ -7,40 +7,40 @@ object Form1: TForm1
   Color = clScrollBar
   Font.Charset = ANSI_CHARSET
   Font.Color = clWindowText
-  Font.Height = -13
-  Font.Name = 'Lucida Sans Unicode'
+  Font.Height = -16
+  Font.Name = 'Arial'
   Font.Style = []
   Menu = ObMenu
   Position = poDesigned
   OnCreate = FormCreate
-  TextHeight = 16
+  TextHeight = 18
   object Label1: TLabel
-    Left = 168
+    Left = 183
     Top = 51
-    Width = 54
-    Height = 16
+    Width = 59
+    Height = 18
     Alignment = taCenter
     Caption = 'N'#250'mero:'
   end
   object Label2: TLabel
-    Left = 168
-    Top = 91
-    Width = 57
-    Height = 16
+    Left = 177
+    Top = 99
+    Width = 65
+    Height = 18
     Alignment = taCenter
     Caption = 'Posici'#243'n:'
   end
   object Label3: TLabel
-    Left = 168
-    Top = 131
-    Width = 43
-    Height = 16
+    Left = 182
+    Top = 139
+    Width = 45
+    Height = 18
     Alignment = taCenter
     Caption = 'D'#237'gito:'
   end
   object Label4: TLabel
-    Left = 232
-    Top = 168
+    Left = 248
+    Top = 184
     Width = 249
     Height = 16
     Alignment = taCenter
@@ -49,31 +49,31 @@ object Form1: TForm1
     ParentColor = False
   end
   object Label5: TLabel
-    Left = 168
+    Left = 182
     Top = 232
-    Width = 50
-    Height = 16
+    Width = 60
+    Height = 18
     Alignment = taCenter
     Caption = 'Cadena:'
   end
   object Label6: TLabel
-    Left = 168
+    Left = 177
     Top = 275
-    Width = 57
-    Height = 16
+    Width = 65
+    Height = 18
     Alignment = taCenter
     Caption = 'Posici'#243'n:'
   end
   object Label7: TLabel
-    Left = 168
+    Left = 177
     Top = 320
-    Width = 56
-    Height = 16
+    Width = 65
+    Height = 18
     Alignment = taCenter
     Caption = 'Caracter:'
   end
   object Label8: TLabel
-    Left = 232
+    Left = 248
     Top = 368
     Width = 249
     Height = 16
@@ -83,50 +83,50 @@ object Form1: TForm1
     ParentColor = False
   end
   object Edit1: TEdit
-    Left = 232
+    Left = 248
     Top = 48
     Width = 249
-    Height = 24
+    Height = 26
     Alignment = taCenter
     TabOrder = 0
   end
   object Edit2: TEdit
-    Left = 232
-    Top = 88
+    Left = 248
+    Top = 96
     Width = 249
-    Height = 24
+    Height = 26
     Alignment = taCenter
     TabOrder = 1
   end
   object Edit3: TEdit
-    Left = 232
-    Top = 128
+    Left = 248
+    Top = 136
     Width = 249
-    Height = 24
+    Height = 26
     Alignment = taCenter
     TabOrder = 2
   end
   object Edit4: TEdit
-    Left = 232
+    Left = 248
     Top = 229
     Width = 249
-    Height = 24
+    Height = 26
     Alignment = taCenter
     TabOrder = 3
   end
   object Edit5: TEdit
-    Left = 232
+    Left = 248
     Top = 272
     Width = 249
-    Height = 24
+    Height = 26
     Alignment = taCenter
     TabOrder = 4
   end
   object Edit6: TEdit
-    Left = 232
+    Left = 248
     Top = 317
     Width = 249
-    Height = 24
+    Height = 26
     Alignment = taCenter
     TabOrder = 5
   end
@@ -171,6 +171,14 @@ object Form1: TForm1
         Caption = 'Ordenar Descendente'
         OnClick = OrdenarDescendenteClick
       end
+      object Invertir: TMenuItem
+        Caption = 'Invertir'
+        OnClick = InvertirClick
+      end
+      object Rotar: TMenuItem
+        Caption = 'Rotar'
+        OnClick = RotarClick
+      end
     end
     object ProcedimientosNumero2: TMenuItem
       Caption = 'Funciones Numero'
@@ -214,6 +222,10 @@ object Form1: TForm1
         Caption = 'A Decimal'
         OnClick = ADecimalClick
       end
+      object Invertido: TMenuItem
+        Caption = 'Invertido'
+        OnClick = InvertidoClick
+      end
     end
     object ProcedimientosCadena1: TMenuItem
       Caption = 'Procedimientos (Cadena)'
@@ -240,6 +252,10 @@ object Form1: TForm1
       object EliminarCaracterCadena: TMenuItem
         Caption = 'Eliminar Caracter'
         OnClick = EliminarCaracterCadenaClick
+      end
+      object AnadirPalabra: TMenuItem
+        Caption = 'A'#241'adir Palabra'
+        OnClick = AnadirPalabraClick
       end
     end
     object ProcedimientosCadena2: TMenuItem
@@ -287,6 +303,14 @@ object Form1: TForm1
       object MayorValor: TMenuItem
         Caption = 'Mayor Valor'
         OnClick = MayorValorClick
+      end
+      object SumaNumeros: TMenuItem
+        Caption = 'Suma N'#250'meros'
+        OnClick = SumaNumerosClick
+      end
+      object Aritmetica: TMenuItem
+        Caption = 'Aritm'#233'tica'
+        OnClick = AritmeticaClick
       end
     end
     object Parcialito1: TMenuItem
